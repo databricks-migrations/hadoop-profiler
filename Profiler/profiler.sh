@@ -65,8 +65,9 @@ check_active_rm() {
     ##echo $RM_SERVER_URL
 
     activermserver=""
-    rmserver=$(echo $RM_SERVER_URL | tr ";" "\n")
-    
+    rmserver=$(echo $RM_SERVER_URL | tr "," "\n")
+  
+     
     for rms in $rmserver 
     do 
        echo $rms 
@@ -75,20 +76,22 @@ check_active_rm() {
 
        activerm=`$clusterinfourl  |grep ACTIVE |wc -l`
 
-       if [ $activerm == "1" ]; then 
+       echo $activerm
+
+       if [ $activerm == 1 ]; then 
+           echo "inside if"
            activerm_url=$url$rms:$RM_SERVER_PORT 
            break
        fi
     done
    
-    echo $activerm_url
+    echo "Active RM URL is : " $activerm_url
 
     if [ "$activerm_url" == "" ]; then 
          echo "Active Resource manager URL not found ... aborting the process ...  " 
          exit 1 
 
     fi 
-    #curl -i --negotiate -u :  http://kerbhdp31.ganeshrj.com:8088/ws/v1/cluster/info  |grep ACTIVE |wc -l
 
 }
 
@@ -210,6 +213,14 @@ extract_hdp() {
 
 }
 
+extract_cdp() { 
+
+    check_kerberos
+    extract_yarn
+
+
+}
+
 ##########################################################################################################
 ################################## START of Main Code ####################################################
 ##########################################################################################################
@@ -220,8 +231,11 @@ if [ "$DISTRIBUTION" == "HDP" ]; then
 
       echo " Distribution is Hortonworks. About to Extact ... "       
       extract_hdp
+
 else if [ "$DISTRIBUTION" == "CDP" ]; then 
-        echo " Distribtuion is Cloudera . Starting Extract ... " 
+      echo " Distribtuion is Cloudera . Starting Extract ... " 
+      echo " ***** NOTE : this script will only extract YARN logs. CM and impala logs needs to be extract manually ... "
+      extract_cdp
      else 
         echo  "Invalid Distribution "  
         exit 1
