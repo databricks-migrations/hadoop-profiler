@@ -28,8 +28,6 @@ export output_dir=`dirname ${0}`/Output/
 export CURL='curl ' 
 export kerburl=' --negotiate -u : '
 export http='http://'
-#export secureurl='--insecure -v'
-#export https='https://'
 
 export clusterinfo='/ws/v1/cluster/info'
 export rmapps='/ws/v1/cluster/apps'
