@@ -1,1 +1,0 @@
-{ "status" : 400, "message" : "The properties [Host/os_arch] specified in the request or predicate are not supported for the resource type Host." }
