@@ -139,9 +139,14 @@ extract_yarn() {
 
     check_active_rm
     extract_yarn_appls
-    extract_yarn_hosts
-    extract_yarn_metrics
-    extract_yarn_scheduler
+
+    ### Extract additional YARN Details only during initial run 
+    
+    if [ "$INITIAL_EXEC" == "Y" ]; then 
+        extract_yarn_hosts
+        extract_yarn_metrics
+        extract_yarn_scheduler
+    fi
 
 }
 
@@ -206,8 +211,11 @@ extract_hdp() {
 
     check_kerberos
     extract_yarn
-    extract_ambari_bp
-    #extract_ranger_policies
+
+    if [ "$INITIAL_EXEC == "Y" ]; then 
+       extract_ambari_bp
+       #extract_ranger_policies
+    fi
 
 }
 
@@ -215,7 +223,6 @@ extract_cdp() {
 
     check_kerberos
     extract_yarn
-
 
 }
 
