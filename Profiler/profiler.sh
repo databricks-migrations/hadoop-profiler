@@ -3,7 +3,7 @@
 
 #############################################################
 # This Batch Script will Extract  the following metrics from a Hadoop Cluster :
-# --------------------
+# ------------------------------------------------------------------
 #
 # 1. YARN Application execution, Host , metrics and Scheduler Information 
 #
