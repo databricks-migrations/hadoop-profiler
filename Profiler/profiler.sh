@@ -74,10 +74,9 @@ check_active_rm() {
 
        activerm=`$clusterinfourl  |grep ACTIVE |wc -l`
 
-       echo $activerm
+       #echo $activerm
 
        if [ $activerm == 1 ]; then 
-           echo "inside if"
            activerm_url=$url$rms:$RM_SERVER_PORT 
            break
        fi
@@ -212,7 +211,7 @@ extract_hdp() {
     check_kerberos
     extract_yarn
 
-    if [ "$INITIAL_EXEC == "Y" ]; then 
+    if [ "$INITIAL_EXEC" == "Y" ]; then 
        extract_ambari_bp
        #extract_ranger_policies
     fi
