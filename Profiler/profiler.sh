@@ -26,8 +26,8 @@ export curr_date=`date +"%Y%m%d_%H%M%S"`
 export output_dir=`dirname ${0}`/Output/
 
 export CURL='curl ' 
-export kerburl=' --negotiate -u : '
 export http='http://'
+export kerburl=' --negotiate -u : '
 
 export clusterinfo='/ws/v1/cluster/info'
 export rmapps='/ws/v1/cluster/apps'
@@ -40,6 +40,9 @@ check_kerberos()  {
     if [ $IS_SECURE == "Y" ]; then 
         CURL="$CURL -k"
         http="https://"
+    else 
+        CURL="$CURL " 
+        http="http://"
     fi 
 
     if [ $IS_KERBORIZED == "Y" ]; then
@@ -155,6 +158,9 @@ extract_ambari_bp() {
     if [ $AMBARI_SECURED == "Y" ]; then 
         CURL="$CURL -k"
         http="https://"
+    else 
+        CURL="$CURL " 
+        http="http://"
     fi 
 
     ### Ambari Metrics 
@@ -218,10 +224,93 @@ extract_hdp() {
 
 }
 
+
+extract_cm_info() {
+    if [ "$CM_SECURED" == "Y" ]; then 
+        CURL="$CURL -k"
+        http="https://"
+    else 
+        CURL="$CURL " 
+        http="http://"
+    fi 
+
+    ### Ambari Metrics 
+
+    CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'` 
+
+    cmservices="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services"
+    cmhost="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/hosts"
+    cmconfig="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/cm/allHosts/config"
+    cmexport="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/export"
+
+    services=`$cmservices`
+    hosts=`$cmhost`
+    config=`$cmconfig`
+    cmexp=`$cmexport`
+    
+    cm_services=cmServices_$curr_date.json
+    cm_hosts=cmHosts_$curr_date.json
+    cm_config=cmConfig_$curr_date.json
+    cm_export=cmExport_$curr_date.json
+    
+    echo $services > $output_dir$cm_services
+    echo $hosts > $output_dir$cm_hosts
+    echo $config > $output_dir$cm_config
+    echo $cmexp > $output_dir$cm_export 
+
+}
+
+
+extract_impala() { 
+
+    ## Impala Extract create by : Gui Bracialli 
+
+    if [ "$CM_SECURED" == "Y" ]; then 
+        CURL="$CURL -k"
+        http="https://"
+    else 
+        CURL="$CURL " 
+        http="http://"
+    fi 
+
+    BASE_URL="$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services/$CM_IMPALA_SERVICE/impalaQueries
+
+    #not using date range becuase date commands are different in linux and osx
+    dates=($CM_IMPALA_EXTRACT_DATES)
+
+    for DAY in "${dates[@]}"
+	do
+	  for HOUR in $(seq -w 0 23)
+	  do
+	    for OFFSET in 0 1000 2000 3000 4000 5000
+	    do
+	       URL_FILTER="$BASE_URL?from=${DAY}T${HOUR}%3A00%3A00.000Z&to=${DAY}T${HOUR}%3A23%3A59.999Z&filter=&limit=1000&offset=$OFFSET"
+	       echo "extracting $URL_FILTER"
+	       #curl --insecure -v -u ${CM_ADMIN_USER}:${CM_ADMIN_PASSWORD} $URL_FILTER > impala_${DAY}_${HOUR}_${OFFSET}.json
+	      
+	       cmimpala="$CURL -X GET -u ${CM_ADMIN_USER}:${CM_ADMIN_PASSWORD} $URL_FILTER"
+
+ 	       impalaextract=`$cmimpala`
+               cm_impalaext=impala_${DAY}_${HOUR}_${OFFSET}.json
+	       echo $impalaextract > $output_dir$cm_impalaext
+
+	    done
+	  done
+    done
+}
+
+
 extract_cdp() { 
 
     check_kerberos
     extract_yarn
+    
+    if [ "$INITIAL_EXEC" == "Y" ]; then 
+       extract_cm_info
+       #extract_sentry_policies
+    fi
+    
+    extract_impala
 
 }
 
@@ -238,7 +327,7 @@ if [ "$DISTRIBUTION" == "HDP" ]; then
 
 else if [ "$DISTRIBUTION" == "CDP" ]; then 
       echo " Distribtuion is Cloudera . Starting Extract ... " 
-      echo " ***** NOTE : this script will only extract YARN logs. CM and impala logs needs to be extract manually ... "
+      #echo " ***** NOTE : this script will only extract YARN logs. CM and impala logs needs to be extract manually ... "
       extract_cdp
      else 
         echo  "Invalid Distribution "  
