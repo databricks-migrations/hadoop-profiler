@@ -214,8 +214,36 @@ extract_ambari_bp() {
 
 
 
-
+###########################################
 ### Extract HDP Logs 
+###########################################
+
+extract_ranger_policies() { 
+ 
+    if [ "$RANGER_SECURED" == "Y" ]; then
+        CURL="$CURL -k"
+        http="https://"
+    else
+        CURL="$CURL "
+        http="http://"
+    fi
+
+    rangerRepos="$CURL -X GET -u $RANGER_USER:$RANGER_PWD -X GET $http$RANGER_URL:$RANGER_PORT/service/public/api/policy"
+    rangerPolicies="$CURL -X GET -u $RANGER_USER:$RANGER_PWD -X GET $http$RANGER_URL:$RANGER_PORT/service/public/api/repository"
+
+    repos=`$rangerRepos`
+    policies=`$rangerPolicies`
+
+    ranger_repos=Ranger_Repos_$curr_date.json
+    ranger_policies=Ranger_Policies_$curr_date.json
+
+    echo $repos > $output_dir$ranger_repos
+    echo $policies > $output_dir$ranger_policies
+
+}
+
+
+
 extract_hdp() { 
 
     check_kerberos
@@ -223,7 +251,11 @@ extract_hdp() {
 
     if [ "$INITIAL_EXEC" == "Y" ]; then 
        extract_ambari_bp
-       #extract_ranger_policies
+ 
+
+       if [ "$IS_RANGER_SETUP" == "Y" ]; then
+            extract_ranger_policies
+       fi 
     fi
 
 }
@@ -269,7 +301,7 @@ extract_cm_info() {
 }
 
 ############################################################
-## Impala Extract create by : Gui Bracialli 
+## Impala Extract created by : Gui Bracialli 
 ############################################################
 
 extract_impala() { 
