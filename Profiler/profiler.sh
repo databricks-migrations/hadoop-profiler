@@ -212,6 +212,10 @@ extract_ambari_bp() {
 } 
 
 
+
+
+
+### Extract HDP Logs 
 extract_hdp() { 
 
     check_kerberos
@@ -225,7 +229,11 @@ extract_hdp() {
 }
 
 
+
+## Extract CDP Logs
+
 extract_cm_info() {
+
     if [ "$CM_SECURED" == "Y" ]; then 
         CURL="$CURL -k"
         http="https://"
@@ -260,10 +268,15 @@ extract_cm_info() {
 
 }
 
+############################################################
+## Impala Extract create by : Gui Bracialli 
+############################################################
 
 extract_impala() { 
 
-    ## Impala Extract create by : Gui Bracialli 
+
+
+    echo "Extracting Impala Queries " 
 
     if [ "$CM_SECURED" == "Y" ]; then 
         CURL="$CURL -k"
@@ -273,9 +286,11 @@ extract_impala() {
         http="http://"
     fi 
 
-    BASE_URL="$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services/$CM_IMPALA_SERVICE/impalaQueries
+    BASE_URL="$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services/$CM_IMPALA_SERVICE/impalaQueries"
 
     #not using date range becuase date commands are different in linux and osx
+    echo $CM_IMPALA_EXTRACT_DATES
+
     dates=($CM_IMPALA_EXTRACT_DATES)
 
     for DAY in "${dates[@]}"
@@ -297,8 +312,8 @@ extract_impala() {
 	    done
 	  done
     done
+  
 }
-
 
 extract_cdp() { 
 
@@ -327,10 +342,9 @@ if [ "$DISTRIBUTION" == "HDP" ]; then
 
 else if [ "$DISTRIBUTION" == "CDP" ]; then 
       echo " Distribtuion is Cloudera . Starting Extract ... " 
-      #echo " ***** NOTE : this script will only extract YARN logs. CM and impala logs needs to be extract manually ... "
       extract_cdp
      else 
-        echo  "Invalid Distribution "  
+        echo  " Invalid Distribution"
         exit 1
      fi
 fi

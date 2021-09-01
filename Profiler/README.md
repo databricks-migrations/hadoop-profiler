@@ -9,8 +9,8 @@
 ####     -  Ranger policies if Ranger is Used
 
 ### 3. If the Distribution is CDP, then it will extract
-####     -  the Services from CM (WIP)
-####     -  Impala logs based on the input dates (WIP)
+####     -  the Services from CM  
+####     -  Impala logs based on the input dates 
 
 
 
