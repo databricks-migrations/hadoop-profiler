@@ -37,7 +37,7 @@ export rmnodes='/ws/v1/cluster/nodes'
 
 check_kerberos()  { 
 
-    if [ $IS_SECURE == "Y" ]; then 
+    if [ "$IS_SECURE" == "Y" ]; then 
         CURL="$CURL -k"
         http="https://"
     else 
@@ -45,14 +45,23 @@ check_kerberos()  {
         http="http://"
     fi 
 
-    if [ $IS_KERBORIZED == "Y" ]; then
+    if [ "$IS_KERBERIZED" == "Y" ]; then
 
         echo " Kerberos is set as True. Make sure to Kinit before executing the script. Current Credential Cache is ... "
         eval klist
-        echo "                   " 
-        echo " Press Enter to Continue or Ctrl+C to cancel the execution to Kinit .... "
-        read input
-       
+        echo "                                                                   " 
+
+	if [ "$GOT_KEYTAB" == "Y" ]; then 
+	    echo " Initializing with Keytab provided ..... " 
+	    kinit="kinit -kt  $PRINCIPAL $KEYTAB_PATH/KEYTAB"
+	    eval $kinit
+            eval klist
+
+	else 
+            echo " Press Enter to Continue or Ctrl+C to cancel the execution to Kinit .... "
+            read input
+        fi 
+
         ## Patch up Kerberos URL 
         url=$(echo $CURL$kerburl$http)
     else 
