@@ -53,7 +53,7 @@ check_kerberos()  {
 
 	if [ "$GOT_KEYTAB" == "Y" ]; then 
 	    echo " Initializing with Keytab provided ..... " 
-	    kinit="kinit -kt  $PRINCIPAL $KEYTAB_PATH/KEYTAB"
+	    kinit="kinit -kt $KEYTAB_PATH/KEYTAB $PRINCIPAL"
 	    eval $kinit
             eval klist
 
