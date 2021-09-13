@@ -283,7 +283,7 @@ extract_cm_info() {
         http="http://"
     fi 
 
-    ### Ambari Metrics 
+    ### Cloudera Manager Metrics
 
     CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'` 
 
@@ -364,6 +364,7 @@ extract_cdp() {
     if [ "$INITIAL_EXEC" == "Y" ]; then 
        extract_cm_info
        #extract_sentry_policies
+       echo " NOTE: This is an Initial Extract. Please inspect the files to makesure the extracts looks fine .... " 
     fi
     
     extract_impala
