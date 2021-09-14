@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-#############################################################
+####################################################################################
 # This Batch Script will Extract  the following metrics from a Hadoop Cluster :
 # ------------------------------------------------------------------
 #
@@ -15,13 +14,15 @@
 #     -  the Services from CM        
 #     -  Impala logs based on the input dates 
 #
-#############################################################
+#####################################################################################
 
 
 . `dirname ${0}`/profiler.conf 
 
 ## Init Variables 
+
 export curr_date=`date +"%Y%m%d_%H%M%S"`
+export curr_impala_batch_dt=`date +"%Y-%m-%d"`
 
 export output_dir=`dirname ${0}`/Output/
 
@@ -221,8 +222,6 @@ extract_ambari_bp() {
 } 
 
 
-
-
 ###########################################
 ### Extract HDP Logs 
 ###########################################
@@ -260,18 +259,22 @@ extract_hdp() {
 
     if [ "$INITIAL_EXEC" == "Y" ]; then 
        extract_ambari_bp
-       echo " NOTE: This is an Initial Extract. Please inspect the files to makesure the extracts looks fine .... " 
+      
 
        if [ "$IS_RANGER_SETUP" == "Y" ]; then
             extract_ranger_policies
        fi 
+       echo " ####################################################################################################"
+       echo " NOTE: This is an Initial Extract. Please inspect the files to make sure the extracts are fine .... "
+       echo " ####################################################################################################"
     fi
 
 }
 
 
-
-## Extract CDP Logs
+###########################################
+### Extract CDP Logs
+###########################################
 
 extract_cm_info() {
 
@@ -315,8 +318,6 @@ extract_cm_info() {
 
 extract_impala() { 
 
-
-
     echo "Extracting Impala Queries " 
 
     if [ "$CM_SECURED" == "Y" ]; then 
@@ -327,13 +328,23 @@ extract_impala() {
         http="http://"
     fi 
 
+    CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'` 
     BASE_URL="$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services/$CM_IMPALA_SERVICE/impalaQueries"
 
     #not using date range becuase date commands are different in linux and osx
-    echo $CM_IMPALA_EXTRACT_DATES
+    ####echo $CM_IMPALA_EXTRACT_DATES
+    ####dates=($CM_IMPALA_EXTRACT_DATES)
 
-    dates=($CM_IMPALA_EXTRACT_DATES)
 
+    if [ "$INITIAL_EXEC" == "Y" ]; then 
+       dates=($CM_IMPALA_EXTRACT_DATES)
+    else 
+       echo "Running in Scheduled mode ... using $curr_impala_batch_dt for the extract"
+       dates=($curr_impala_batch_dt)
+    fi
+
+    echo $dates
+    
     for DAY in "${dates[@]}"
 	do
 	  for HOUR in $(seq -w 0 23)
@@ -364,9 +375,14 @@ extract_cdp() {
     if [ "$INITIAL_EXEC" == "Y" ]; then 
        extract_cm_info
        #extract_sentry_policies
-       echo " NOTE: This is an Initial Extract. Please inspect the files to makesure the extracts looks fine .... " 
+       echo " ##########################################################################################################"
+       echo " NOTE: This is an Initial Extract. Please inspect the files to makesure the extracts looks fine ....       " 
+       echo " -----  Also, please validate make sure the Cloudera Manager Export does NOT have any sensitive information"
+       echo " ##########################################################################################################"
+
     fi
-    
+
+    ## Extracting Impala 
     extract_impala
 
 }
