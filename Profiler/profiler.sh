@@ -376,10 +376,12 @@ extract_cdp() {
     if [ "$INITIAL_EXEC" == "Y" ]; then 
        extract_cm_info
        #extract_sentry_policies
-       echo " ##########################################################################################################"
-       echo " NOTE: This is an Initial Extract. Please inspect the files to makesure the extracts looks fine ....       " 
-       echo " -----  Also, please validate make sure the Cloudera Manager Export does NOT have any sensitive information"
-       echo " ##########################################################################################################"
+       echo " #################################################################################################################"
+       echo " NOTE: This is an Initial Extract.  Please inspect the files to:                                                  " 
+       echo " -----  1. Make sure the extracts looks fine ....                                                                 " 
+       echo "        2. Cloudera Manager Export  for  any sensitive information like user id and passwords                     "
+       echo "        3. Impala extract for hard coded NPI or PHI values in the queries                                         "
+       echo " #################################################################################################################"
 
     fi
 
