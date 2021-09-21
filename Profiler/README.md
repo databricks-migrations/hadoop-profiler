@@ -8,7 +8,7 @@
 ####     -  the blueprint, Service, hosts and host components from Ambari
 ####     -  Ranger policies and Repos if Ranger is Used
 
-### 3. If the Distribution is CDP, then  extract
+### 3. If the Distribution is CDH, then  extract
 ####     -  the Services, host and components from CM  
 ####     -  Impala logs based on the input dates 
 
