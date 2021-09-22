@@ -14,7 +14,7 @@
 
 <h2><span style="font-weight: 400;">Configuration:</span></h2>
 <ul>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The following changes need to be applied to the configuration file.&nbsp;</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Configuration file Updates:.&nbsp;</span></li>
 </ul>
 <p>&nbsp;</p>
 <table>
@@ -305,7 +305,7 @@ After initial extraction, we recommend running the script daily for at least 2 w
 </td>
 <td>
 <p><span style="font-weight: 400;">Range of dates separated by spaces&nbsp;</span></p>
-<p><span style="font-weight: 400;">Example: </span><span style="font-weight: 400;">"2021-08-25 2021-08-26 2021-08-27"</span></p>
+<p><span style="font-weight: 400;">Example: </span><span style="font-weight: 400;">"2021-08-25 2021-08-26 2021-08-27 2021-08-28 2021-08-29"</span></p>
 </td>
 </tr>
 <tr>
