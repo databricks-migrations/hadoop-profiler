@@ -58,9 +58,9 @@ check_kerberos()  {
 	    eval $kinit
             eval klist
 
-	else 
-            echo " Press Enter to Continue or Ctrl+C to cancel the execution to Kinit .... "
-            read input
+	#else 
+            #echo " Press Enter to Continue or Ctrl+C to cancel  .... "
+            #read input
         fi 
 
         ## Patch up Kerberos URL 
@@ -376,17 +376,18 @@ extract_cdp() {
     if [ "$INITIAL_EXEC" == "Y" ]; then 
        extract_cm_info
        #extract_sentry_policies
-       echo " #################################################################################################################"
-       echo " NOTE: This is an Initial Extract.  Please inspect the files to:                                                  " 
-       echo " -----  1. Make sure the extracts looks fine ....                                                                 " 
-       echo "        2. Cloudera Manager Export  for  any sensitive information like user id and passwords                     "
-       echo "        3. Impala extract for hard coded NPI or PHI values in the queries                                         "
-       echo " #################################################################################################################"
 
     fi
 
     ## Extracting Impala 
     extract_impala
+
+    echo " #################################################################################################################"
+    echo " NOTE: This is an Initial Extract.  Please inspect the files to:                                                  " 
+    echo " -----  1. Make sure the extracts looks fine ....                                                                 " 
+    echo "        2. Cloudera Manager Export  for  any sensitive information like user id and passwords                     "
+    echo "        3. Impala extract for hard coded NPI or PHI values in the queries                                         "
+    echo " #################################################################################################################"
 
 }
 
