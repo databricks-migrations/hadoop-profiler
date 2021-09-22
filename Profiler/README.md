@@ -12,10 +12,9 @@
 ####     -  the Services, host and components from CM  
 ####     -  Impala logs based on the input dates 
 
-<h2><span style="font-weight: 400;">Configuration:</span></h2>
-<ul>
-<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Configuration file Updates:.&nbsp;</span></li>
-</ul>
+
+# Configuration Updates 
+
 <p>&nbsp;</p>
 <table>
 <tbody>
@@ -318,3 +317,14 @@ After initial extraction, we recommend running the script daily for at least 2 w
 </tr>
 </tbody>
 </table>
+
+# How to Run: 
+
+### 1. git clone https://github.com/ganeshrj78/Profiler.git
+### 2. cd Profiler/Profiler 
+### 3. chmod +x profiler.sh 
+### 4. ./profiler.sh 
+
+# Output: 
+
+### All the extracts are stored as part of the Output Folder
