@@ -37,6 +37,10 @@
 <p><span style="font-weight: 400;">For initial Execution (Y/N) .&nbsp;</span></p>
 <p><span style="font-weight: 400;">Y -&gt; Includes Ambari or CM extracts, Ranger, YARN Host, Scheduler and metrics.&nbsp;</span></p>
 <p><span style="font-weight: 400;">N -&gt;&nbsp; Extracts only the RM Applications.&nbsp;</span></p>
+<p><span style="font-weight: 400;">You only need to run script with INITIAL_EXEC=Y once
+
+After initial extraction, we recommend running the script daily for at least 2 weeks, using INITIAL_EXEC=N, as YARN doesn't store much history of application log.
+.&nbsp;</span></p>
 </td>
 </tr>
 <tr>
