@@ -109,7 +109,6 @@ extract_yarn_appls() {
 
     apps=`$activerm_url$rmapps`
 
-    mkdir -p $output_dir
     appdump=YarnApplicationDump_$curr_date.json
 
     echo $apps >  $output_dir$appdump
@@ -396,6 +395,9 @@ extract_cdp() {
 ##########################################################################################################
 
 echo "Dist: "  $DISTRIBUTION
+
+#echo " Creating Output Directory : " 
+mkdir -p $output_dir
 
 if [ "$DISTRIBUTION" == "HDP" ]; then 
 
