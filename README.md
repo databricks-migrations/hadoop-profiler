@@ -328,3 +328,5 @@ After initial extraction, we recommend running the script daily for at least 2 w
 # Output: 
 
 ### All the extracts are stored as part of the Output Folder
+
+
