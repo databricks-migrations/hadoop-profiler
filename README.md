@@ -1,25 +1,27 @@
-# Profiler For hadoop 
+# Hadoop Profiler
 
-### This Batch Script will Extract  the following metrics from a Hadoop Cluster :
+>### 1. About Hadoop Profiler
+Hadoop Profiler is a Migration Assessment Tool to profile and generate metrics out of YARN (which is the primary resource management and scheduling tech on Hadoop). These metrics could be useful to understand  applications that are running in an hadoop environment and generate insights into migration strategies.
 
-### 1. YARN Application execution, Host , metrics and Scheduler Information
+>### 2. Overview
+The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.sh) which extracts data from YARN, Ambari or Cloudera Manager. This script takes required configuration values from a configuration file, [profiler.conf](Profiler/profiler.conf) which needs to be updated with required values before the execution.
 
-### 2. Spark History Server Metrics 
+#### Metrics/Information extracted from a Hadoop Cluster
+1. YARN Application execution metrics, Host details and scheduler information.
+2. Spark History Server Metrics. 
+3. CDH Specific information:
+    - Services, Host and Components from Cloudera Manager (CM)
+    - Impala logs based on the input dates 
+4. HDP Specific information:
+    - The blueprint, Services, Host and Components from Ambari
+    - Ranger policies and Repos (incase Ranger is used)
+5. Other Distributions:
+    - Only YARN and Spark History Server metrics are supported at this time.
 
-### 3. If the Distribution is CDH, then extract contains
-####     -  the Services, host and components from Cloudera Manager (CM)
-####     -  Impala logs based on the input dates 
-
-### 4. If the Distribution is HDP, then extract contains
-####     -  the blueprint, Service, hosts and host components from Ambari
-####     -  Ranger policies and Repos if Ranger is Used
-
-### 5. If the Distribution is neither CDH or HDP (i.e. OTH), then only YARN  and Spark History Server metrics will be extracted
 
 
-# Configuration Updates 
+#### Profiler Script Configutation
 
-<p>&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -375,17 +377,23 @@ After initial extraction, we recommend running the script daily for at least 2 w
 </tbody>
 </table>
 
-# How to Run: 
 
-## Initial Extraction (INITIAL_EXEC=Y):
-### 1. git clone https://github.com/databricks-migrations/hadoop-profiler.git
-### 2. cd Profiler/Profiler 
-### 3. chmod +x profiler.sh 
-### 4. ./profiler.sh 
+>### 3. How to Run
 
-## Daily extraction (INITIAL_EXEC=N)
-### schedule profiler.sh to run daily for at least 2 weeks
+**Initial Extraction :**  
+It is recommended to run the first execution manualy to make sure correct configuration values.
+Execute the following on the edge node or a host that can reach the YARN Resource Manager or Ambari or CM. 
 
-# Output: 
+1. git clone -b main https://github.com/databricks-migrations/hadoop-profiler.git
+2. cd Profiler/Profiler
+3. Update [profiler.conf](Profiler/profiler.conf) to set `INITIAL_EXEC=Y` and other required settings depending on your Hadoop distribution.
+3. chmod +x profiler.sh 
+4. ./profiler.sh 
 
-### All the extracts are stored as part of the Output Folder within their respective components Sub-folders.
+**Daily extraction :** 
+- Set `INITIAL_EXEC=N` in the [profiler.conf](Profiler/profiler.conf) 
+- Schedule profiler.sh to run daily for at least 2 weeks
+
+>### 4. Output: 
+
+All the extracts are stored as part of the Output Folder within their respective components Sub-folders.
