@@ -373,14 +373,20 @@
 
 # How to Run: 
 
-## Initial Extraction (INITIAL_EXEC=Y):
+## NOTE:- The code automatically determines whether it is an Intitial or Incremental Extract. 
+
+## Initial Extraction :
 ### 1. git clone https://github.com/databricks-migrations/hadoop-profiler.git
 ### 2. cd Profiler/Profiler 
 ### 3. chmod +x profiler.sh 
 ### 4. ./profiler.sh 
 
-## Daily extraction (INITIAL_EXEC=N)
+## Daily extraction  or Incremental Extract. 
 ### schedule profiler.sh to run daily for at least 2 weeks
+
+
+### NOTE: At any given time, if you want to run an initial extract, delete the folder "ExtractTracker" with in the Profiler directory and the next execution will be an Initial Extract. 
+
 
 # Output: 
 
