@@ -34,6 +34,7 @@ export extract_date=`date +"%Y-%m-%d"`
 export yesterday_impala_extract_dt=`date -d '-1 day' +"%Y-%m-%d"`
 
 export output_dir=`dirname ${0}`/Output/
+export runtracker_dir=`dirname ${0}`/ExtractTracker/
 
 export CURL='curl ' 
 export http='http://'
@@ -75,7 +76,7 @@ check_kerberos()  {
     else
 
 	## If HDI Flag is enabled then add the user id and password for YARN UI
-        if [ $IS_HDI == 'Y' ]; then
+        if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
 	      url=$(echo $CURL -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http)
 	else 
 
@@ -97,7 +98,7 @@ check_active_rm() {
     do 
        echo $rms 
 
-       if [ $IS_HDI == 'Y' ]; then 
+       if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then 
            clusterinfourl=$url$rms$clusterinfo
        else 
            clusterinfourl=$url$rms:$RM_SERVER_PORT$clusterinfo
@@ -110,7 +111,7 @@ check_active_rm() {
        #echo $activerm
 
        if [ $activerm == 1 ]; then 
-           if [ $IS_HDI == 'Y' ]; then
+           if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
                activerm_url=$url$rms 
            else
                activerm_url=$url$rms:$RM_SERVER_PORT 
@@ -274,7 +275,7 @@ extract_ambari_bp() {
         http="http://"
     fi 
 
-    if [ $IS_HDI == 'Y' ]; then
+    if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
         ambari_url=$AMBARI_SERVER
     else
         ambari_url=$AMBARI_SERVER:$AMBARI_PORT
@@ -331,7 +332,7 @@ extract_ranger_policies() {
     fi
 
 
-    if [ $IS_HDI == 'Y' ]; then
+    if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
         ranger_url=$AMBARI_SERVER
     else
         ranger_url=$RANGER_URL:$RANGER_PORT
@@ -572,11 +573,31 @@ extract_other_oss() {
     fi  
 
     echo " ####################################################################################################"
-    echo " NOTE: This is an Initial Extract. Please inspect the files to make sure the extracts are fine .... "
+    echo " NOTE:  Please inspect the files to make sure the extracts are fine .... "
     echo " ####################################################################################################"
 
 }
 
+
+check_run_status() { 
+
+    tracker_file=$runtracker_dir"/initialrun.txt"
+
+    if [ -f "$tracker_file" ]; then          
+         INITIAL_EXEC="N"
+          echo " ####################################################################################################"
+          echo "  Processing Incremental Extract ... "
+          echo " ####################################################################################################"
+    else      
+         echo "Initial Run" > $tracker_file
+         INITIAL_EXEC="Y"
+          echo " ####################################################################################################"
+          echo "  Processing Initial Extract ... "
+          echo " ####################################################################################################"         
+    fi  
+ 
+
+}
 
 ##########################################################################################################
 ################################## START of Main Code ####################################################
@@ -586,6 +607,12 @@ echo "Dist: "  $DISTRIBUTION
 
 #echo " Creating Output Directory : " 
 mkdir -p $output_dir
+
+## Create Tracker Directory 
+mkdir -p $runtracker_dir
+
+## Check to see if the intial extract was executed 
+check_run_status
 
 if [ "$DISTRIBUTION" == "HDP" ]; then 
 

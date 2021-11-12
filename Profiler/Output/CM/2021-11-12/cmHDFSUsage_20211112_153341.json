@@ -1,0 +1,1671 @@
+{
+  "items" : [ {
+    "timeSeries" : [ {
+      "metadata" : {
+        "metricName" : "dfs_capacity",
+        "entityName" : "NameNode (quickstart.cloudera)",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-NAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-NAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "NAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity WHERE entityName = \"hdfs-NAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:23.000Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:23.000Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:23.000Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:23.000Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:23.000Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity",
+        "entityName" : "DataNode (quickstart.cloudera)",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "DataNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-DATANODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-DATANODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "DATANODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity WHERE entityName = \"hdfs-DATANODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:26.827Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:26.828Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:26.827Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:26.856Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:26.848Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity",
+        "entityName" : "HDFS",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "category" : "SERVICE",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "active" : "true",
+          "serviceType" : "HDFS",
+          "serviceDisplayName" : "HDFS",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "entityName" : "hdfs"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity WHERE entityName = \"hdfs\" AND category = SERVICE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:26.827Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:26.828Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:26.827Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:26.856Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:26.848Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used",
+        "entityName" : "NameNode (quickstart.cloudera)",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-NAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-NAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "NAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used WHERE entityName = \"hdfs-NAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:23.000Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:23.000Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:23.000Z",
+        "value" : 8.72697958E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:23.000Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:23.000Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used",
+        "entityName" : "DataNode (quickstart.cloudera)",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "DataNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-DATANODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-DATANODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "DATANODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used WHERE entityName = \"hdfs-DATANODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:26.827Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:26.828Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:26.827Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:26.856Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:26.848Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used",
+        "entityName" : "HDFS",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "category" : "SERVICE",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "active" : "true",
+          "serviceType" : "HDFS",
+          "serviceDisplayName" : "HDFS",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "entityName" : "hdfs"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used WHERE entityName = \"hdfs\" AND category = SERVICE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:26.827Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:26.828Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:26.827Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:26.856Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:26.848Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_free",
+        "entityName" : "NameNode (quickstart.cloudera)",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-NAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-NAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "NAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_free WHERE entityName = \"hdfs-NAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:23.000Z",
+        "value" : 4.2105200806E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:23.000Z",
+        "value" : 4.210300535E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:23.000Z",
+        "value" : 4.2101792934E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:23.000Z",
+        "value" : 4.2098647206E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:23.000Z",
+        "value" : 4.2100633766E10,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_non_hdfs",
+        "entityName" : "NameNode (quickstart.cloudera)",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-NAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-NAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "NAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_non_hdfs WHERE entityName = \"hdfs-NAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:23.000Z",
+        "value" : 1.2252704768E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:23.000Z",
+        "value" : 1.2254900224E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:23.000Z",
+        "value" : 1.2256112538E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:23.000Z",
+        "value" : 1.2259258164E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:23.000Z",
+        "value" : 1.2257271808E10,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_non_hdfs",
+        "entityName" : "DataNode (quickstart.cloudera)",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "DataNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-DATANODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-DATANODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "DATANODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_non_hdfs WHERE entityName = \"hdfs-DATANODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:26.827Z",
+        "value" : 1.2252983296E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:26.828Z",
+        "value" : 1.2255182848E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:26.827Z",
+        "value" : 1.225641554E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:26.856Z",
+        "value" : 1.225954898E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:26.848Z",
+        "value" : 1.2257542144E10,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_non_hdfs",
+        "entityName" : "HDFS",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "category" : "SERVICE",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "active" : "true",
+          "serviceType" : "HDFS",
+          "serviceDisplayName" : "HDFS",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "entityName" : "hdfs"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_non_hdfs WHERE entityName = \"hdfs\" AND category = SERVICE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:29:26.827Z",
+        "value" : 1.2252983296E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:30:26.828Z",
+        "value" : 1.2255182848E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:31:26.827Z",
+        "value" : 1.225641554E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:32:26.856Z",
+        "value" : 1.225954898E10,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-11-12T20:33:26.848Z",
+        "value" : 1.2257542144E10,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_across_datanodes",
+        "entityName" : "Cloudera QuickStart",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "active" : "true",
+          "category" : "CLUSTER",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "version" : "CDH 5.13.0",
+          "entityName" : "1"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_across_datanodes WHERE entityName = \"1\" AND category = CLUSTER",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_across_datanodes",
+        "entityName" : "/default",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "active" : "true",
+          "rackId" : "/default",
+          "category" : "RACK",
+          "entityName" : "/default"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_across_datanodes WHERE entityName = \"/default\" AND category = RACK",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_across_datanodes",
+        "entityName" : "HDFS",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "category" : "SERVICE",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "active" : "true",
+          "serviceType" : "HDFS",
+          "serviceDisplayName" : "HDFS",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "entityName" : "hdfs"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_across_datanodes WHERE entityName = \"hdfs\" AND category = SERVICE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 5.8479091712E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 5.8479091712E10,
+          "count" : 1,
+          "min" : 5.8479091712E10,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 5.8479091712E10,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 5.8479091712E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_across_datanodes",
+        "entityName" : "Cloudera QuickStart",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "active" : "true",
+          "category" : "CLUSTER",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "version" : "CDH 5.13.0",
+          "entityName" : "1"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_across_datanodes WHERE entityName = \"1\" AND category = CLUSTER",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 8.7269806E8,
+          "count" : 1,
+          "min" : 8.7269806E8,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 8.7269806E8,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 8.7269806E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 8.7269806E8,
+          "count" : 1,
+          "min" : 8.7269806E8,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 8.7269806E8,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 8.7269806E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_across_datanodes",
+        "entityName" : "/default",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "active" : "true",
+          "rackId" : "/default",
+          "category" : "RACK",
+          "entityName" : "/default"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_across_datanodes WHERE entityName = \"/default\" AND category = RACK",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 8.7269806E8,
+          "count" : 1,
+          "min" : 8.7269806E8,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 8.7269806E8,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 8.7269806E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 8.7269806E8,
+          "count" : 1,
+          "min" : 8.7269806E8,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 8.7269806E8,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 8.7269806E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_across_datanodes",
+        "entityName" : "HDFS",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "category" : "SERVICE",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "active" : "true",
+          "serviceType" : "HDFS",
+          "serviceDisplayName" : "HDFS",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "entityName" : "hdfs"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_across_datanodes WHERE entityName = \"hdfs\" AND category = SERVICE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 8.72697856E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 8.72697856E8,
+          "count" : 1,
+          "min" : 8.72697856E8,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 8.72697856E8,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 8.72697856E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 8.7269806E8,
+          "count" : 1,
+          "min" : 8.7269806E8,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 8.7269806E8,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 8.7269806E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 8.7269806E8,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 8.7269806E8,
+          "count" : 1,
+          "min" : 8.7269806E8,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 8.7269806E8,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 8.7269806E8,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_non_hdfs_across_datanodes",
+        "entityName" : "Cloudera QuickStart",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "active" : "true",
+          "category" : "CLUSTER",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "version" : "CDH 5.13.0",
+          "entityName" : "1"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_non_hdfs_across_datanodes WHERE entityName = \"1\" AND category = CLUSTER",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 1.225148416E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 1.225148416E10,
+          "count" : 1,
+          "min" : 1.225148416E10,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 1.225148416E10,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 1.225148416E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 1.2252983296E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 1.2252983296E10,
+          "count" : 1,
+          "min" : 1.2252983296E10,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 1.2252983296E10,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 1.2252983296E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 1.2255182848E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 1.2255182848E10,
+          "count" : 1,
+          "min" : 1.2255182848E10,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 1.2255182848E10,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 1.2255182848E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 1.225641554E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 1.225641554E10,
+          "count" : 1,
+          "min" : 1.225641554E10,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 1.225641554E10,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 1.225641554E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 1.225954898E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 1.225954898E10,
+          "count" : 1,
+          "min" : 1.225954898E10,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 1.225954898E10,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 1.225954898E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_non_hdfs_across_datanodes",
+        "entityName" : "/default",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "active" : "true",
+          "rackId" : "/default",
+          "category" : "RACK",
+          "entityName" : "/default"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_non_hdfs_across_datanodes WHERE entityName = \"/default\" AND category = RACK",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 1.225148416E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 1.225148416E10,
+          "count" : 1,
+          "min" : 1.225148416E10,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 1.225148416E10,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 1.225148416E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 1.2252983296E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 1.2252983296E10,
+          "count" : 1,
+          "min" : 1.2252983296E10,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 1.2252983296E10,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 1.2252983296E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 1.2255182848E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 1.2255182848E10,
+          "count" : 1,
+          "min" : 1.2255182848E10,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 1.2255182848E10,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 1.2255182848E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 1.225641554E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 1.225641554E10,
+          "count" : 1,
+          "min" : 1.225641554E10,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 1.225641554E10,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 1.225641554E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 1.225954898E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 1.225954898E10,
+          "count" : 1,
+          "min" : 1.225954898E10,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 1.225954898E10,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 1.225954898E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "dfs_capacity_used_non_hdfs_across_datanodes",
+        "entityName" : "HDFS",
+        "startTime" : "2021-11-12T20:28:41.797Z",
+        "endTime" : "2021-11-12T20:33:41.797Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "category" : "SERVICE",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "active" : "true",
+          "serviceType" : "HDFS",
+          "serviceDisplayName" : "HDFS",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "entityName" : "hdfs"
+        },
+        "unitNumerators" : [ "bytes" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT dfs_capacity_used_non_hdfs_across_datanodes WHERE entityName = \"hdfs\" AND category = SERVICE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-11-12T20:28:55.348Z",
+        "value" : 1.225148416E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:28:21.863Z",
+          "sampleValue" : 1.225148416E10,
+          "count" : 1,
+          "min" : 1.225148416E10,
+          "minTime" : "2021-11-12T20:28:21.863Z",
+          "max" : 1.225148416E10,
+          "maxTime" : "2021-11-12T20:28:21.863Z",
+          "mean" : 1.225148416E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:29:55.348Z",
+        "value" : 1.2252983296E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:29:26.827Z",
+          "sampleValue" : 1.2252983296E10,
+          "count" : 1,
+          "min" : 1.2252983296E10,
+          "minTime" : "2021-11-12T20:29:26.827Z",
+          "max" : 1.2252983296E10,
+          "maxTime" : "2021-11-12T20:29:26.827Z",
+          "mean" : 1.2252983296E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:30:55.349Z",
+        "value" : 1.2255182848E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:30:26.828Z",
+          "sampleValue" : 1.2255182848E10,
+          "count" : 1,
+          "min" : 1.2255182848E10,
+          "minTime" : "2021-11-12T20:30:26.828Z",
+          "max" : 1.2255182848E10,
+          "maxTime" : "2021-11-12T20:30:26.828Z",
+          "mean" : 1.2255182848E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:31:55.349Z",
+        "value" : 1.225641554E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:31:26.827Z",
+          "sampleValue" : 1.225641554E10,
+          "count" : 1,
+          "min" : 1.225641554E10,
+          "minTime" : "2021-11-12T20:31:26.827Z",
+          "max" : 1.225641554E10,
+          "maxTime" : "2021-11-12T20:31:26.827Z",
+          "mean" : 1.225641554E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      }, {
+        "timestamp" : "2021-11-12T20:32:55.349Z",
+        "value" : 1.225954898E10,
+        "type" : "SAMPLE",
+        "aggregateStatistics" : {
+          "sampleTime" : "2021-11-12T20:32:26.856Z",
+          "sampleValue" : 1.225954898E10,
+          "count" : 1,
+          "min" : 1.225954898E10,
+          "minTime" : "2021-11-12T20:32:26.856Z",
+          "max" : 1.225954898E10,
+          "maxTime" : "2021-11-12T20:32:26.856Z",
+          "mean" : 1.225954898E10,
+          "stdDev" : 0.0,
+          "crossEntityMetadata" : {
+            "maxEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "maxEntityName" : "hdfs-DATANODE",
+            "minEntityDisplayName" : "DataNode (quickstart.cloudera)",
+            "minEntityName" : "hdfs-DATANODE",
+            "numEntities" : 1.0
+          }
+        }
+      } ]
+    } ],
+    "warnings" : [ ],
+    "timeSeriesQuery" : "SELECT dfs_capacity,dfs_capacity_used,dfs_capacity_free,dfs_capacity_used_non_hdfs,dfs_capacity_across_datanodes,dfs_capacity_used_across_datanodes,dfs_capacity_used_non_hdfs_across_datanodes"
+  } ]
+}
