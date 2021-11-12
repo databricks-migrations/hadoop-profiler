@@ -10,9 +10,10 @@
 ####     -  the Services, host and components from Cloudera Manager (CM)
 ####     -  Impala logs based on the input dates 
 
-### 4. If the Distribution is HDP, then extract contains
+### 4. If the Distribution is HDP or HD Insight (Set the HDI flag to Y/N), then extract contains
 ####     -  the blueprint, Service, hosts and host components from Ambari
 ####     -  Ranger policies and Repos if Ranger is Used
+ 
 
 ### 5. If the Distribution is neither CDH or HDP (i.e. OTH), then only YARN  and Spark History Server metrics will be extracted
 
@@ -31,21 +32,7 @@
 <p><strong>Description</strong></p>
 </td>
 </tr>
-<tr>
-<td>&nbsp;</td>
-<td>
-<p><span style="font-weight: 400;">INITIAL_EXEC</span></p>
-</td>
-<td>
-<p><span style="font-weight: 400;">For initial Execution (Y/N) .&nbsp;</span></p>
-<p><span style="font-weight: 400;">Y -&gt; Includes Ambari or CM extracts, Ranger, YARN Host, Scheduler and metrics.&nbsp;</span></p>
-<p><span style="font-weight: 400;">N -&gt;&nbsp; Extracts only the RM Applications.&nbsp;</span></p>
-<p><span style="font-weight: 400;">You only need to run script with INITIAL_EXEC=Y once
 
-After initial extraction, we recommend running the script daily for at least 2 weeks, using INITIAL_EXEC=N, as YARN doesn't store much history of application log.
-.&nbsp;</span></p>
-</td>
-</tr>
 <tr>
 <td rowspan="8">
 <p><span style="font-weight: 400;">YARN Resource manager Configs</span></p>
@@ -276,11 +263,20 @@ After initial extraction, we recommend running the script daily for at least 2 w
 <td rowspan="12">
 <p><span style="font-weight: 400;">Ambari and Ranger Related Configurations if the distribution is HDP&nbsp;</span></p>
 </td>
+
+<td>
+<p><span style="font-weight: 400;">IS_HDI</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Is the Distribution HD Insight (Y/N)&nbsp;</span></p>
+</td>
+</tr>
+<tr>
 <td>
 <p><span style="font-weight: 400;">AMBARI_ADMIN_USERID</span></p>
 </td>
 <td>
-<p><span style="font-weight: 400;">Ambari Admin User id&nbsp;</span></p>
+<p><span style="font-weight: 400;">Ambari Admin User Id&nbsp;</span></p>
 </td>
 </tr>
 <tr>
