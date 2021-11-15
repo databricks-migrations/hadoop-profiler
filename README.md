@@ -1,26 +1,28 @@
-# Profiler For hadoop 
+# Hadoop Profiler
 
-### This Batch Script will Extract  the following metrics from a Hadoop Cluster :
+>### 1. About Hadoop Profiler
+Hadoop Profiler is a Migration Assessment Tool to profile and generate metrics out of YARN (which is the primary resource management and scheduling tech on Hadoop). These metrics could be useful to understand  applications that are running in an hadoop environment and generate insights into migration strategies.
 
-### 1. YARN Application execution, Host , metrics and Scheduler Information
+>### 2. Overview
+The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.sh) which extracts data from YARN, Ambari or Cloudera Manager. This script takes required configuration values from a configuration file, [profiler.conf](Profiler/profiler.conf) which needs to be updated with required values before the execution.
 
-### 2. Spark History Server Metrics 
+#### Metrics/Information extracted from a Hadoop Cluster
+1. YARN Application execution metrics, Host details and scheduler information.
+2. Spark History Server Metrics. 
+3. CDH Specific information:
+    - Services, Host and Components from Cloudera Manager (CM)
+    - Impala logs based on the input dates 
+4. HDP (or HD Insight) Specific information:
+    - The blueprint, Services, Host and Components from Ambari
+    - Ranger policies and Repos (incase Ranger is used)
+    - NOTE: Set the HDI flag to Y or N if the distribution is Azure HD Insight. 
+5. Other Distributions:
+    - Only YARN and Spark History Server metrics are supported at this time.
 
-### 3. If the Distribution is CDH, then extract contains
-####     -  the Services, host and components from Cloudera Manager (CM)
-####     -  Impala logs based on the input dates 
-
-### 4. If the Distribution is HDP or HD Insight (Set the HDI flag to Y/N), then extract contains
-####     -  the blueprint, Service, hosts and host components from Ambari
-####     -  Ranger policies and Repos if Ranger is Used
- 
-
-### 5. If the Distribution is neither CDH or HDP (i.e. OTH), then only YARN  and Spark History Server metrics will be extracted
 
 
-# Configuration Updates 
+#### Profiler Script Configutation
 
-<p>&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -268,15 +270,14 @@
 <p><span style="font-weight: 400;">IS_HDI</span></p>
 </td>
 <td>
-<p><span style="font-weight: 400;">Is the Distribution HD Insight (Y/N)&nbsp;</span></p>
+<p><span style="font-weight: 400;">Is the Distribution Azure HD Insight (Y/N)&nbsp;</span></p>
 </td>
 </tr>
-<tr>
 <td>
 <p><span style="font-weight: 400;">AMBARI_ADMIN_USERID</span></p>
 </td>
 <td>
-<p><span style="font-weight: 400;">Ambari Admin User Id&nbsp;</span></p>
+<p><span style="font-weight: 400;">Ambari Admin User id&nbsp;</span></p>
 </td>
 </tr>
 <tr>
@@ -371,23 +372,24 @@
 </tbody>
 </table>
 
-# How to Run: 
 
-## NOTE:- The code automatically determines whether it is an Intitial or Incremental Extract. 
+>### 3. How to Run
 
-## Initial Extraction :
-### 1. git clone https://github.com/databricks-migrations/hadoop-profiler.git
-### 2. cd Profiler/Profiler 
-### 3. chmod +x profiler.sh 
-### 4. ./profiler.sh 
+**Initial Extraction :**  
+It is recommended to run the first execution manualy to make sure correct configuration values.
+Execute the following on the edge node or a host that can reach the YARN Resource Manager or Ambari or CM. 
 
-## Daily extraction  or Incremental Extract. 
-### schedule profiler.sh to run daily for at least 2 weeks
+1. git clone -b main https://github.com/databricks-migrations/hadoop-profiler.git
+2. cd Profiler/Profiler
+3. Update [profiler.conf](Profiler/profiler.conf) to required settings depending on your Hadoop distribution. The code automatically determines if its an Initial or Incremental Extract. 
+3. chmod +x profiler.sh 
+4. ./profiler.sh 
+5. Make sure the Output extracts have the data extracted. 
 
+**Daily extraction :**  
+- Schedule profiler.sh to run daily for at least 2 weeks
+- Note:  At any given time, if there is a need to initial extract, delete the folder "ExtractTracker" with in the Profiler directory.  
 
-### NOTE: At any given time, if you want to run an initial extract, delete the folder "ExtractTracker" with in the Profiler directory and the next execution will be an Initial Extract. 
+>### 4. Output: 
 
-
-# Output: 
-
-### All the extracts are stored as part of the Output Folder within their respective components Sub-folders.
+All the extracts are stored as part of the Output Folder within their respective components Sub-folders.
