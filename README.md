@@ -12,9 +12,10 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 3. CDH Specific information:
     - Services, Host and Components from Cloudera Manager (CM)
     - Impala logs based on the input dates 
-4. HDP Specific information:
+4. HDP (or HD Insight) Specific information:
     - The blueprint, Services, Host and Components from Ambari
     - Ranger policies and Repos (incase Ranger is used)
+    - NOTE: Set the HDI flag to Y or N if the distribution is Azure HD Insight. 
 5. Other Distributions:
     - Only YARN and Spark History Server metrics are supported at this time.
 
@@ -33,21 +34,7 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 <p><strong>Description</strong></p>
 </td>
 </tr>
-<tr>
-<td>&nbsp;</td>
-<td>
-<p><span style="font-weight: 400;">INITIAL_EXEC</span></p>
-</td>
-<td>
-<p><span style="font-weight: 400;">For initial Execution (Y/N) .&nbsp;</span></p>
-<p><span style="font-weight: 400;">Y -&gt; Includes Ambari or CM extracts, Ranger, YARN Host, Scheduler and metrics.&nbsp;</span></p>
-<p><span style="font-weight: 400;">N -&gt;&nbsp; Extracts only the RM Applications.&nbsp;</span></p>
-<p><span style="font-weight: 400;">You only need to run script with INITIAL_EXEC=Y once
 
-After initial extraction, we recommend running the script daily for at least 2 weeks, using INITIAL_EXEC=N, as YARN doesn't store much history of application log.
-.&nbsp;</span></p>
-</td>
-</tr>
 <tr>
 <td rowspan="8">
 <p><span style="font-weight: 400;">YARN Resource manager Configs</span></p>
@@ -278,6 +265,14 @@ After initial extraction, we recommend running the script daily for at least 2 w
 <td rowspan="12">
 <p><span style="font-weight: 400;">Ambari and Ranger Related Configurations if the distribution is HDP&nbsp;</span></p>
 </td>
+
+<td>
+<p><span style="font-weight: 400;">IS_HDI</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Is the Distribution Azure HD Insight (Y/N)&nbsp;</span></p>
+</td>
+</tr>
 <td>
 <p><span style="font-weight: 400;">AMBARI_ADMIN_USERID</span></p>
 </td>
@@ -386,13 +381,14 @@ Execute the following on the edge node or a host that can reach the YARN Resourc
 
 1. git clone -b main https://github.com/databricks-migrations/hadoop-profiler.git
 2. cd Profiler/Profiler
-3. Update [profiler.conf](Profiler/profiler.conf) to set `INITIAL_EXEC=Y` and other required settings depending on your Hadoop distribution.
+3. Update [profiler.conf](Profiler/profiler.conf) to required settings depending on your Hadoop distribution. The code automatically determines if its an Initial or Incremental Extract. 
 3. chmod +x profiler.sh 
 4. ./profiler.sh 
+5. Make sure the Output extracts have the data extracted. 
 
-**Daily extraction :** 
-- Set `INITIAL_EXEC=N` in the [profiler.conf](Profiler/profiler.conf) 
+**Daily extraction :**  
 - Schedule profiler.sh to run daily for at least 2 weeks
+- Note:  At any given time, if there is a need to initial extract, delete the folder "ExtractTracker" with in the Profiler directory.  
 
 >### 4. Output: 
 

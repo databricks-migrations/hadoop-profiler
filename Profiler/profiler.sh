@@ -34,6 +34,7 @@ export extract_date=`date +"%Y-%m-%d"`
 export yesterday_impala_extract_dt=`date -d '-1 day' +"%Y-%m-%d"`
 
 export output_dir=`dirname ${0}`/Output/
+export runtracker_dir=`dirname ${0}`/ExtractTracker/
 
 export CURL='curl ' 
 export http='http://'
@@ -72,9 +73,16 @@ check_kerberos()  {
 
         ## Patch up Kerberos URL 
         url=$(echo $CURL$kerburl$http)
-    else 
-        ## Patch up Kerberos URL 
-        url=$(echo $CURL$http)
+    else
+
+	## If HDI Flag is enabled then add the user id and password for YARN UI
+        if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
+	      url=$(echo $CURL -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http)
+	else 
+
+             ## Patch up Non-Kerberos URL 
+             url=$(echo $CURL$http)
+        fi
     fi
 }
 
@@ -89,7 +97,13 @@ check_active_rm() {
     for rms in $rmserver 
     do 
        echo $rms 
-       clusterinfourl=$url$rms:$RM_SERVER_PORT$clusterinfo
+
+       if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then 
+           clusterinfourl=$url$rms$clusterinfo
+       else 
+           clusterinfourl=$url$rms:$RM_SERVER_PORT$clusterinfo
+       fi 
+
        echo $clusterinfourl
 
        activerm=`$clusterinfourl  |grep ACTIVE |wc -l`
@@ -97,7 +111,12 @@ check_active_rm() {
        #echo $activerm
 
        if [ $activerm == 1 ]; then 
-           activerm_url=$url$rms:$RM_SERVER_PORT 
+           if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
+               activerm_url=$url$rms 
+           else
+               activerm_url=$url$rms:$RM_SERVER_PORT 
+	   fi
+
            break
        fi
     done
@@ -211,17 +230,13 @@ extract_spark_logs() {
         sparkurl=$(echo $CURL$http)
     fi
 
-    cm_extract_curr_date=`date +"%Y-%m-%d"`
-    cm_extract_start_date=`date -d '-1 month' +"%Y-%m-%d"`
-
 
     if [ "$INITIAL_EXEC" == "Y" ]; then 
-         extract_start_date=`date -d '-1 month' +"%Y-%m-%d"`
+         extract_start_date=`date -d '-1 week' +"%Y-%m-%d"`
     else 
          extract_start_date=`date -d '-1 day' +"%Y-%m-%d"`
     fi
 
-    #extract_start_date="2020-01-01"
     
     sparkHSapps=$sparkurl$SPARK_HS_URL:$SPARK_HS_PORT/api/v1/applications?minDate=$extract_start_date
     sparkHSlist=`$sparkurl$SPARK_HS_URL:$SPARK_HS_PORT/api/v1/applications?minDate=$extract_start_date |grep id | cut -f2 -d":" |sed -e 's/"//g' | sed -e 's/,//g'`
@@ -260,18 +275,24 @@ extract_ambari_bp() {
         http="http://"
     fi 
 
+    if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
+        ambari_url=$AMBARI_SERVER
+    else
+        ambari_url=$AMBARI_SERVER:$AMBARI_PORT
+    fi
+
     ### Ambari Metrics 
-    bpurl="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME?format=blueprint"
-    ambariHosts="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/hosts?fields=Hosts/cpu_count,Hosts/disk_info,Hosts/total_mem,Hosts/os_type"
-    ambariServices="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services"
-    ambariComponents="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/hosts?fields=host_components/host_name"
-    ambariStack="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/stack_versions/1"
+    bpurl="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME?format=blueprint"
+    ambariHosts="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/hosts?fields=Hosts/cpu_count,Hosts/disk_info,Hosts/total_mem,Hosts/os_type"
+    ambariServices="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services"
+    ambariComponents="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/hosts?fields=host_components/host_name"
+    ambariStack="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/stack_versions/1"
 
     ### Ambari RM and HDFS Metrics 
     
-    ambariHDFS="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/HDFS/components/NAMENODE"
-    ambariRM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/RESOURCEMANAGER"
-    ambariNM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$AMBARI_SERVER:$AMBARI_PORT/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/NODEMANAGER"
+    ambariHDFS="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/HDFS/components/NAMENODE"
+    ambariRM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/RESOURCEMANAGER"
+    ambariNM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/NODEMANAGER"
 
     bppath=AmbariBlueprint_$curr_date.json
     hostpath=AmbariHost_$curr_date.json
@@ -310,8 +331,16 @@ extract_ranger_policies() {
         http="http://"
     fi
 
-    rangerRepos="$CURL -X GET -u $RANGER_USER:$RANGER_PWD -X GET $http$RANGER_URL:$RANGER_PORT/service/public/api/repository"
-    rangerPolicies="$CURL -X GET -u $RANGER_USER:$RANGER_PWD -X GET $http$RANGER_URL:$RANGER_PORT/service/public/api/policy"
+
+    if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
+        ranger_url=$AMBARI_SERVER
+    else
+        ranger_url=$RANGER_URL:$RANGER_PORT
+    fi
+
+
+    rangerRepos="$CURL -X GET -u $RANGER_USER:$RANGER_PWD -X GET $http$ranger_url/service/public/api/repository"
+    rangerPolicies="$CURL -X GET -u $RANGER_USER:$RANGER_PWD -X GET $http$ranger_url/service/public/api/policy"
 
     ranger_repos=Ranger_Repos_$curr_date.json
     ranger_policies=Ranger_Policies_$curr_date.json
@@ -544,11 +573,31 @@ extract_other_oss() {
     fi  
 
     echo " ####################################################################################################"
-    echo " NOTE: This is an Initial Extract. Please inspect the files to make sure the extracts are fine .... "
+    echo " NOTE:  Please inspect the files to make sure the extracts are fine .... "
     echo " ####################################################################################################"
 
 }
 
+
+check_run_status() { 
+
+    tracker_file=$runtracker_dir"/initialrun.txt"
+
+    if [ -f "$tracker_file" ]; then          
+         INITIAL_EXEC="N"
+          echo " ####################################################################################################"
+          echo "  Processing Incremental Extract ... "
+          echo " ####################################################################################################"
+    else      
+         echo "Initial Run" > $tracker_file
+         INITIAL_EXEC="Y"
+          echo " ####################################################################################################"
+          echo "  Processing Initial Extract ... "
+          echo " ####################################################################################################"         
+    fi  
+ 
+
+}
 
 ##########################################################################################################
 ################################## START of Main Code ####################################################
@@ -558,6 +607,12 @@ echo "Dist: "  $DISTRIBUTION
 
 #echo " Creating Output Directory : " 
 mkdir -p $output_dir
+
+## Create Tracker Directory 
+mkdir -p $runtracker_dir
+
+## Check to see if the intial extract was executed 
+check_run_status
 
 if [ "$DISTRIBUTION" == "HDP" ]; then 
 
