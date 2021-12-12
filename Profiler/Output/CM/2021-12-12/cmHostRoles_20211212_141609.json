@@ -1,0 +1,2471 @@
+{
+  "items" : [ {
+    "timeSeries" : [ {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Hive Metastore Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Hive Metastore Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hive-HIVEMETASTORE",
+          "serviceType" : "HIVE",
+          "entityName" : "hive-HIVEMETASTORE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hive",
+          "category" : "ROLE",
+          "roleType" : "HIVEMETASTORE",
+          "active" : "true",
+          "serviceDisplayName" : "Hive"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hive-HIVEMETASTORE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Hue Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Hue Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hue-HUE_SERVER",
+          "serviceType" : "HUE",
+          "entityName" : "hue-HUE_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hue",
+          "category" : "ROLE",
+          "roleType" : "HUE_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Hue"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hue-HUE_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Sqoop 2 Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Sqoop 2 Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "sqoop-SQOOP_SERVER",
+          "serviceType" : "SQOOP",
+          "entityName" : "sqoop-SQOOP_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "sqoop",
+          "category" : "ROLE",
+          "roleType" : "SQOOP_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Sqoop 2"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"sqoop-SQOOP_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Alert Publisher (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Alert Publisher Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "ALERTPUBLISHER",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-ALERTPUBLISHER",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-ALERTPUBLISHER"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"mgmt-ALERTPUBLISHER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "DataNode (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "DataNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-DATANODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-DATANODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "DATANODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hdfs-DATANODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "zookeeper-SERVER",
+          "serviceType" : "ZOOKEEPER",
+          "entityName" : "zookeeper-SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "zookeeper",
+          "category" : "ROLE",
+          "roleType" : "SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "ZooKeeper"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"zookeeper-SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "HiveServer2 (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "HiveServer2 Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hive-HIVESERVER2",
+          "serviceType" : "HIVE",
+          "entityName" : "hive-HIVESERVER2",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hive",
+          "category" : "ROLE",
+          "roleType" : "HIVESERVER2",
+          "active" : "true",
+          "serviceDisplayName" : "Hive"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hive-HIVESERVER2\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "NodeManager (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NodeManager Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "yarn-NODEMANAGER",
+          "serviceType" : "YARN",
+          "entityName" : "yarn-NODEMANAGER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "yarn",
+          "category" : "ROLE",
+          "roleType" : "NODEMANAGER",
+          "active" : "true",
+          "serviceDisplayName" : "YARN (MR2 Included)"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"yarn-NODEMANAGER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Impala Daemon (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Impala Daemon Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "impala-IMPALAD",
+          "serviceType" : "IMPALA",
+          "entityName" : "impala-IMPALAD",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "impala",
+          "category" : "ROLE",
+          "roleType" : "IMPALAD",
+          "active" : "true",
+          "serviceDisplayName" : "Impala"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"impala-IMPALAD\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Lily HBase Indexer (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Lily HBase Indexer Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "ks_indexer-HBASE_INDEXER",
+          "serviceType" : "KS_INDEXER",
+          "entityName" : "ks_indexer-HBASE_INDEXER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "ks_indexer",
+          "category" : "ROLE",
+          "roleType" : "HBASE_INDEXER",
+          "active" : "true",
+          "serviceDisplayName" : "Key-Value Store Indexer"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"ks_indexer-HBASE_INDEXER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "JobHistory Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "JobHistory Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "yarn-JOBHISTORY",
+          "serviceType" : "YARN",
+          "entityName" : "yarn-JOBHISTORY",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "yarn",
+          "category" : "ROLE",
+          "roleType" : "JOBHISTORY",
+          "active" : "true",
+          "serviceDisplayName" : "YARN (MR2 Included)"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"yarn-JOBHISTORY\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Master (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Master Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hbase-MASTER",
+          "serviceType" : "HBASE",
+          "entityName" : "hbase-MASTER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hbase",
+          "category" : "ROLE",
+          "roleType" : "MASTER",
+          "active" : "true",
+          "serviceDisplayName" : "HBase"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hbase-MASTER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "NameNode (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-NAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-NAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "NAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hdfs-NAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Impala Catalog Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Impala Catalog Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "impala-CATALOGSERVER",
+          "serviceType" : "IMPALA",
+          "entityName" : "impala-CATALOGSERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "impala",
+          "category" : "ROLE",
+          "roleType" : "CATALOGSERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Impala"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"impala-CATALOGSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Host Monitor (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Host Monitor Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "HOSTMONITOR",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-HOSTMONITOR",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-HOSTMONITOR"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"mgmt-HOSTMONITOR\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Oozie Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Oozie Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "oozie-OOZIE_SERVER",
+          "serviceType" : "OOZIE",
+          "entityName" : "oozie-OOZIE_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "oozie",
+          "category" : "ROLE",
+          "roleType" : "OOZIE_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Oozie"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"oozie-OOZIE_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "SecondaryNameNode (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "SecondaryNameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-SECONDARYNAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-SECONDARYNAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "SECONDARYNAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hdfs-SECONDARYNAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "RegionServer (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "RegionServer Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hbase-REGIONSERVER",
+          "serviceType" : "HBASE",
+          "entityName" : "hbase-REGIONSERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hbase",
+          "category" : "ROLE",
+          "roleType" : "REGIONSERVER",
+          "active" : "true",
+          "serviceDisplayName" : "HBase"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hbase-REGIONSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "HBase Thrift Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "HBase Thrift Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hbase-HBASETHRIFTSERVER",
+          "serviceType" : "HBASE",
+          "entityName" : "hbase-HBASETHRIFTSERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hbase",
+          "category" : "ROLE",
+          "roleType" : "HBASETHRIFTSERVER",
+          "active" : "true",
+          "serviceDisplayName" : "HBase"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"hbase-HBASETHRIFTSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "ResourceManager (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "ResourceManager Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "yarn-RESOURCEMANAGER",
+          "serviceType" : "YARN",
+          "entityName" : "yarn-RESOURCEMANAGER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "yarn",
+          "category" : "ROLE",
+          "roleType" : "RESOURCEMANAGER",
+          "active" : "true",
+          "serviceDisplayName" : "YARN (MR2 Included)"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"yarn-RESOURCEMANAGER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Solr Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Solr Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "solr-SOLR_SERVER",
+          "serviceType" : "SOLR",
+          "entityName" : "solr-SOLR_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "solr",
+          "category" : "ROLE",
+          "roleType" : "SOLR_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Solr"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"solr-SOLR_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Event Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Event Server Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "EVENTSERVER",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-EVENTSERVER",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-EVENTSERVER"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"mgmt-EVENTSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Impala StateStore (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Impala StateStore Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "impala-STATESTORE",
+          "serviceType" : "IMPALA",
+          "entityName" : "impala-STATESTORE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "impala",
+          "category" : "ROLE",
+          "roleType" : "STATESTORE",
+          "active" : "true",
+          "serviceDisplayName" : "Impala"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"impala-STATESTORE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "SPARK_YARN_HISTORY_SERVER (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "History Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "spark-SPARK_YARN_HISTORY_SERVER",
+          "serviceType" : "SPARK_ON_YARN",
+          "entityName" : "spark-SPARK_YARN_HISTORY_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "spark_on_yarn",
+          "category" : "ROLE",
+          "roleType" : "SPARK_YARN_HISTORY_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Spark"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"spark-SPARK_YARN_HISTORY_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "scm_role_state",
+        "entityName" : "Service Monitor (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Service Monitor Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "SERVICEMONITOR",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-SERVICEMONITOR",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-SERVICEMONITOR"
+        },
+        "unitNumerators" : [ "SCM role state" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT scm_role_state WHERE entityName = \"mgmt-SERVICEMONITOR\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:17.649Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:17.651Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:17.653Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:17.654Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:17.656Z",
+        "value" : 3.0,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Hive Metastore Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Hive Metastore Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hive-HIVEMETASTORE",
+          "serviceType" : "HIVE",
+          "entityName" : "hive-HIVEMETASTORE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hive",
+          "category" : "ROLE",
+          "roleType" : "HIVEMETASTORE",
+          "active" : "true",
+          "serviceDisplayName" : "Hive"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hive-HIVEMETASTORE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:58.000Z",
+        "value" : 9970.160163879395,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:58.000Z",
+        "value" : 10030.083585977554,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:58.000Z",
+        "value" : 10090.1482629776,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:58.000Z",
+        "value" : 10150.170055866241,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Hue Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Hue Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hue-HUE_SERVER",
+          "serviceType" : "HUE",
+          "entityName" : "hue-HUE_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hue",
+          "category" : "ROLE",
+          "roleType" : "HUE_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Hue"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hue-HUE_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:12:04.000Z",
+        "value" : 9923.493543863297,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:04.000Z",
+        "value" : 9983.456539869308,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:04.000Z",
+        "value" : 10043.481723070145,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:04.000Z",
+        "value" : 10103.512898921967,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Sqoop 2 Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Sqoop 2 Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "sqoop-SQOOP_SERVER",
+          "serviceType" : "SQOOP",
+          "entityName" : "sqoop-SQOOP_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "sqoop",
+          "category" : "ROLE",
+          "roleType" : "SQOOP_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Sqoop 2"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"sqoop-SQOOP_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9933.18625497818,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 9993.251778125763,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10053.183089017868,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10113.241271972656,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10173.262453079224,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Alert Publisher (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Alert Publisher Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "ALERTPUBLISHER",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-ALERTPUBLISHER",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-ALERTPUBLISHER"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"mgmt-ALERTPUBLISHER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:25.000Z",
+        "value" : 10049.235100030899,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:25.000Z",
+        "value" : 10109.294502973557,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:25.000Z",
+        "value" : 10169.27943110466,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:25.000Z",
+        "value" : 10229.289098978043,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:25.000Z",
+        "value" : 10289.328761100769,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "DataNode (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "DataNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-DATANODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-DATANODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "DATANODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hdfs-DATANODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9990.290935993195,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10050.352797985077,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10110.29608798027,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10170.346457004547,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10230.368983983994,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "zookeeper-SERVER",
+          "serviceType" : "ZOOKEEPER",
+          "entityName" : "zookeeper-SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "zookeeper",
+          "category" : "ROLE",
+          "roleType" : "SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "ZooKeeper"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"zookeeper-SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 10013.09300994873,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:25.000Z",
+        "value" : 10073.156772851944,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:25.000Z",
+        "value" : 10133.133635997772,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:25.000Z",
+        "value" : 10193.150365829468,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:25.000Z",
+        "value" : 10253.183807849884,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "HiveServer2 (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "HiveServer2 Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hive-HIVESERVER2",
+          "serviceType" : "HIVE",
+          "entityName" : "hive-HIVESERVER2",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hive",
+          "category" : "ROLE",
+          "roleType" : "HIVESERVER2",
+          "active" : "true",
+          "serviceDisplayName" : "Hive"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hive-HIVESERVER2\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:59.000Z",
+        "value" : 9970.126060009003,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:59.000Z",
+        "value" : 10030.11205291748,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:59.000Z",
+        "value" : 10090.12077999115,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:59.000Z",
+        "value" : 10150.161539077759,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "NodeManager (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NodeManager Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "yarn-NODEMANAGER",
+          "serviceType" : "YARN",
+          "entityName" : "yarn-NODEMANAGER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "yarn",
+          "category" : "ROLE",
+          "roleType" : "NODEMANAGER",
+          "active" : "true",
+          "serviceDisplayName" : "YARN (MR2 Included)"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"yarn-NODEMANAGER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9958.343152999878,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10018.404948949814,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10078.351093053818,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10138.398627996445,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10198.423220872879,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Impala Daemon (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Impala Daemon Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "impala-IMPALAD",
+          "serviceType" : "IMPALA",
+          "entityName" : "impala-IMPALAD",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "impala",
+          "category" : "ROLE",
+          "roleType" : "IMPALAD",
+          "active" : "true",
+          "serviceDisplayName" : "Impala"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"impala-IMPALAD\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9886.8494617939,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 9946.915741920471,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10006.840136766434,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10066.901510953903,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10126.917549848557,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Lily HBase Indexer (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Lily HBase Indexer Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "ks_indexer-HBASE_INDEXER",
+          "serviceType" : "KS_INDEXER",
+          "entityName" : "ks_indexer-HBASE_INDEXER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "ks_indexer",
+          "category" : "ROLE",
+          "roleType" : "HBASE_INDEXER",
+          "active" : "true",
+          "serviceDisplayName" : "Key-Value Store Indexer"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"ks_indexer-HBASE_INDEXER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9932.593824148178,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 9992.659332036972,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10052.585477113724,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10112.642049074173,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10172.657491207123,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "JobHistory Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "JobHistory Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "yarn-JOBHISTORY",
+          "serviceType" : "YARN",
+          "entityName" : "yarn-JOBHISTORY",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "yarn",
+          "category" : "ROLE",
+          "roleType" : "JOBHISTORY",
+          "active" : "true",
+          "serviceDisplayName" : "YARN (MR2 Included)"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"yarn-JOBHISTORY\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9959.03171491623,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10019.095056056976,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10079.070441961288,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10139.088937044144,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10199.122273921967,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Master (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Master Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hbase-MASTER",
+          "serviceType" : "HBASE",
+          "entityName" : "hbase-MASTER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hbase",
+          "category" : "ROLE",
+          "roleType" : "MASTER",
+          "active" : "true",
+          "serviceDisplayName" : "HBase"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hbase-MASTER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9959.561496019363,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10019.627977132797,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10079.592278003693,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10139.617403030396,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10199.64952802658,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "NameNode (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "NameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-NAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-NAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "NAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hdfs-NAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9990.633355855942,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10050.70052599907,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10110.649988889694,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10170.689521074295,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10230.718944072723,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Impala Catalog Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Impala Catalog Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "impala-CATALOGSERVER",
+          "serviceType" : "IMPALA",
+          "entityName" : "impala-CATALOGSERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "impala",
+          "category" : "ROLE",
+          "roleType" : "CATALOGSERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Impala"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"impala-CATALOGSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9886.92214512825,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 9946.983153104782,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10006.966125011444,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10066.977406978607,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10127.013171195984,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Host Monitor (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Host Monitor Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "HOSTMONITOR",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-HOSTMONITOR",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-HOSTMONITOR"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"mgmt-HOSTMONITOR\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 10049.173842191696,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10109.238185167313,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10169.17561006546,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10229.22920703888,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10289.25108408928,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Oozie Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Oozie Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "oozie-OOZIE_SERVER",
+          "serviceType" : "OOZIE",
+          "entityName" : "oozie-OOZIE_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "oozie",
+          "category" : "ROLE",
+          "roleType" : "OOZIE_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Oozie"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"oozie-OOZIE_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9886.998728990555,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 9947.065230846405,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10006.993489980698,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10067.035485982895,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10127.054842948914,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "SecondaryNameNode (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "SecondaryNameNode Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hdfs-SECONDARYNAMENODE",
+          "serviceType" : "HDFS",
+          "entityName" : "hdfs-SECONDARYNAMENODE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hdfs",
+          "category" : "ROLE",
+          "roleType" : "SECONDARYNAMENODE",
+          "active" : "true",
+          "serviceDisplayName" : "HDFS"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hdfs-SECONDARYNAMENODE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9990.10037112236,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10050.165397167206,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10110.132758140564,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10170.15793800354,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10230.18918299675,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "RegionServer (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "RegionServer Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hbase-REGIONSERVER",
+          "serviceType" : "HBASE",
+          "entityName" : "hbase-REGIONSERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hbase",
+          "category" : "ROLE",
+          "roleType" : "REGIONSERVER",
+          "active" : "true",
+          "serviceDisplayName" : "HBase"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hbase-REGIONSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9959.51483798027,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10019.578507900238,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10079.500780820847,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10139.561583042145,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10199.569504022598,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "HBase Thrift Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "HBase Thrift Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "hbase-HBASETHRIFTSERVER",
+          "serviceType" : "HBASE",
+          "entityName" : "hbase-HBASETHRIFTSERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "hbase",
+          "category" : "ROLE",
+          "roleType" : "HBASETHRIFTSERVER",
+          "active" : "true",
+          "serviceDisplayName" : "HBase"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"hbase-HBASETHRIFTSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9959.148874044418,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10019.213345050812,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10079.136863946915,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10139.194010019302,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10199.204247951508,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "ResourceManager (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "ResourceManager Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "yarn-RESOURCEMANAGER",
+          "serviceType" : "YARN",
+          "entityName" : "yarn-RESOURCEMANAGER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "yarn",
+          "category" : "ROLE",
+          "roleType" : "RESOURCEMANAGER",
+          "active" : "true",
+          "serviceDisplayName" : "YARN (MR2 Included)"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"yarn-RESOURCEMANAGER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9957.96251988411,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10018.026693105698,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10077.996481895447,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10138.020200014114,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10198.051388978958,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Solr Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Solr Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "solr-SOLR_SERVER",
+          "serviceType" : "SOLR",
+          "entityName" : "solr-SOLR_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "solr",
+          "category" : "ROLE",
+          "roleType" : "SOLR_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Solr"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"solr-SOLR_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9959.19622683525,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10019.262171983719,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10079.223104953766,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10139.249609947205,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10199.280793905258,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Event Server (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Event Server Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "EVENTSERVER",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-EVENTSERVER",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-EVENTSERVER"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"mgmt-EVENTSERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 10049.584866046906,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10109.64530491829,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10169.629786014557,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10229.639034986496,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10289.679627895355,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Impala StateStore (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "Impala StateStore Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "impala-STATESTORE",
+          "serviceType" : "IMPALA",
+          "entityName" : "impala-STATESTORE",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "impala",
+          "category" : "ROLE",
+          "roleType" : "STATESTORE",
+          "active" : "true",
+          "serviceDisplayName" : "Impala"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"impala-STATESTORE\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9886.622156143188,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 9946.688216924667,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10006.650496959686,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10066.676592111588,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10126.707488059998,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "SPARK_YARN_HISTORY_SERVER (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "clusterName" : "Cloudera QuickStart",
+          "rackId" : "/default",
+          "roleConfigGroup" : "History Server Default Group",
+          "clusterDisplayName" : "Cloudera QuickStart",
+          "hostId" : "quickstart.cloudera",
+          "hostname" : "quickstart.cloudera",
+          "roleName" : "spark-SPARK_YARN_HISTORY_SERVER",
+          "serviceType" : "SPARK_ON_YARN",
+          "entityName" : "spark-SPARK_YARN_HISTORY_SERVER",
+          "version" : "CDH 5.13.0",
+          "serviceName" : "spark_on_yarn",
+          "category" : "ROLE",
+          "roleType" : "SPARK_YARN_HISTORY_SERVER",
+          "active" : "true",
+          "serviceDisplayName" : "Spark"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"spark-SPARK_YARN_HISTORY_SERVER\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 9932.083472967148,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 9992.149816989899,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10052.107167005539,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10112.135189056396,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10172.167356014252,
+        "type" : "SAMPLE"
+      } ]
+    }, {
+      "metadata" : {
+        "metricName" : "uptime",
+        "entityName" : "Service Monitor (quickstart.cloudera)",
+        "startTime" : "2021-12-12T19:11:09.673Z",
+        "endTime" : "2021-12-12T19:16:09.673Z",
+        "attributes" : {
+          "rackId" : "/default",
+          "category" : "ROLE",
+          "roleConfigGroup" : "Service Monitor Default Group",
+          "hostname" : "quickstart.cloudera",
+          "roleType" : "SERVICEMONITOR",
+          "hostId" : "quickstart.cloudera",
+          "active" : "true",
+          "roleName" : "mgmt-SERVICEMONITOR",
+          "serviceDisplayName" : "Cloudera Management Service",
+          "serviceType" : "MGMT",
+          "serviceName" : "mgmt",
+          "entityName" : "mgmt-SERVICEMONITOR"
+        },
+        "unitNumerators" : [ "seconds" ],
+        "unitDenominators" : [ ],
+        "expression" : "SELECT uptime WHERE entityName = \"mgmt-SERVICEMONITOR\" AND category = ROLE",
+        "metricCollectionFrequencyMs" : 60000,
+        "rollupUsed" : "RAW"
+      },
+      "data" : [ {
+        "timestamp" : "2021-12-12T19:11:24.000Z",
+        "value" : 10048.96748805046,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:12:24.000Z",
+        "value" : 10109.031255960464,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:13:24.000Z",
+        "value" : 10169.009176969528,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:14:24.000Z",
+        "value" : 10229.02523803711,
+        "type" : "SAMPLE"
+      }, {
+        "timestamp" : "2021-12-12T19:15:24.000Z",
+        "value" : 10289.058547973633,
+        "type" : "SAMPLE"
+      } ]
+    } ],
+    "warnings" : [ ],
+    "timeSeriesQuery" : "select scm_role_state,uptime where category=ROLE"
+  } ]
+}

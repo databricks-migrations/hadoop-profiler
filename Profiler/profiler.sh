@@ -244,16 +244,17 @@ extract_spark_logs() {
     sparkApps=Spark_Applications_$curr_date.json
       
     eval $sparkHSapps  > $SPARK_out_dir$sparkApps
-       
-    for apps in $sparkHSlist;
-    do
-        echo $apps 
-        applEnv=$sparkurl$SPARK_HS_URL:$SPARK_HS_PORT/api/v1/applications/$apps/environment
-        applExec=$sparkurl$SPARK_HS_URL:$SPARK_HS_PORT/api/v1/applications/$apps/executors
 
-        eval  $applEnv > ${SPARK_out_dir}${apps}_env.json
-        eval  $applExec > ${SPARK_out_dir}${apps}_executors.json
-    done
+    ### Comment out Extract of Executor and env data.    
+    #for apps in $sparkHSlist;
+    #do
+    #    echo $apps 
+    #    applEnv=$sparkurl$SPARK_HS_URL:$SPARK_HS_PORT/api/v1/applications/$apps/environment
+    #    applExec=$sparkurl$SPARK_HS_URL:$SPARK_HS_PORT/api/v1/applications/$apps/executors
+
+    #    eval  $applEnv > ${SPARK_out_dir}${apps}_env.json
+    #    eval  $applExec > ${SPARK_out_dir}${apps}_executors.json
+    #done
       
     
 } 
@@ -382,29 +383,42 @@ extract_hdp() {
 
 extract_cm_timeseries() {
 
-    cmHostRoles="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?query=select%20scm_role_state,uptime%20where%20category=ROLE"
-    cmHDFSUsage="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?query=SELECT%20dfs_capacity,dfs_capacity_used,dfs_capacity_free,dfs_capacity_used_non_hdfs,dfs_capacity_across_datanodes,dfs_capacity_used_across_datanodes,dfs_capacity_used_non_hdfs_across_datanodes"
- 
     cm_extract_curr_date=`date +"%Y-%m-%d"`
     cm_extract_start_date=`date -d '-1 month' +"%Y-%m-%d"`
 
-    cmYarnUtilization="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=select%20allocated_memory_mb,allocated_memory_mb_cumulative,available_memory_mb,allocated_memory_gb,available_memory_mb,available_vcores,allocated_vcores,allocated_vcores_cumulative'"
-    cmYarnMemCpu="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=SELECT%20yarn_reports_containers_used_vcores,total_allocated_vcores_across_yarn_pools,total_available_vcores_across_yarn_pools%20as%20vcores_available,yarn_reports_containers_used_memory,total_available_memory_mb_across_yarn_pools,total_allocated_memory_mb_across_yarn_pools%20as%20memory_available'"
-    cmImpalaUtilization="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=select%20queries_successful_rate,queries_ingested_rate,queries_timed_out_rate,queries_rejected_rate,impala_query_thread_cpu_time_rate,impala_query_admission_wait_rate,impala_query_query_duration_rate,impala_query_memory_accrual_rate,mem_rss_across_impalads,total_mem_rss_across_impalads,num_queries_rate_across_impalads,total_num_queries_rate_across_impalads,impala_memory_rss,impala_memory_total_used,total_mem_tracker_process_limit_across_impalads,total_impala_admission_controller_local_backend_mem_reserved_across_impala_daemon_pools,total_impala_admission_controller_local_backend_mem_usage_across_impala_daemon_pools%20WHERE%20category=CLUSTER'"
+    ## CM Host Roles and HDFS Usage 
 
+    cmHostRoles="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?query=select%20scm_role_state,uptime%20where%20category=ROLE"
+    cmHDFSUsage="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?query=SELECT%20dfs_capacity,dfs_capacity_used,dfs_capacity_free,dfs_capacity_used_non_hdfs,dfs_capacity_across_datanodes,dfs_capacity_used_across_datanodes,dfs_capacity_used_non_hdfs_across_datanodes"
+   
     cm_HostRoles=cmHostRoles_$curr_date.json
     cm_HDFSUsage=cmHDFSUsage_$curr_date.json
-
-    cm_YarnUtilization=cmYarnUtilization_$curr_date.json
-    cm_Yarn_MemCPU=cmYarnMemoryAndCPU_$curr_date.json
-    cm_ImpalaUtilization=cmImpalaUtilization_$curr_date.json
 
     eval $cmHostRoles > $CM_out_dir$cm_HostRoles
     eval $cmHDFSUsage > $CM_out_dir$cm_HDFSUsage
 
+    ## Yarn And Impala  Level Memory and CPU Utlization 
+    cmYarnUtilization="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=select%20allocated_memory_mb,allocated_memory_mb_cumulative,available_memory_mb,allocated_memory_gb,available_memory_mb,available_vcores,allocated_vcores,allocated_vcores_cumulative'"
+    cmYarnMemCpu="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=SELECT%20yarn_reports_containers_used_vcores,total_allocated_vcores_across_yarn_pools,total_available_vcores_across_yarn_pools%20as%20vcores_available,yarn_reports_containers_used_memory,total_available_memory_mb_across_yarn_pools,total_allocated_memory_mb_across_yarn_pools%20as%20memory_available'"
+    cmImpalaUtilization="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=select%20queries_successful_rate,queries_ingested_rate,queries_timed_out_rate,queries_rejected_rate,impala_query_thread_cpu_time_rate,impala_query_admission_wait_rate,impala_query_query_duration_rate,impala_query_memory_accrual_rate,mem_rss_across_impalads,total_mem_rss_across_impalads,num_queries_rate_across_impalads,total_num_queries_rate_across_impalads,impala_memory_rss,impala_memory_total_used,total_mem_tracker_process_limit_across_impalads,total_impala_admission_controller_local_backend_mem_reserved_across_impala_daemon_pools,total_impala_admission_controller_local_backend_mem_usage_across_impala_daemon_pools%20WHERE%20category=CLUSTER'"
+   
+    cm_YarnUtilization=cmYarnUtilization_$curr_date.json
+    cm_Yarn_MemCPU=cmYarnMemoryAndCPU_$curr_date.json
+    cm_ImpalaUtilization=cmImpalaUtilization_$curr_date.json
+
     eval $cmYarnUtilization > $CM_out_dir$cm_YarnUtilization
     eval $cmYarnMemCpu > $CM_out_dir$cm_Yarn_MemCPU
     eval $cmImpalaUtilization > $CM_out_dir$cm_ImpalaUtilization
+
+    ## Cluster Level Memory and CPU Utlization 
+    cmClusterCPUUtilization="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=select%20cpu_percent_across_hosts,total_cores_across_hosts,total_cpu_percent_across_hosts%20WHERE%20category=CLUSTER'"
+    cmClusterMemoryUtilization="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD '$http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/timeseries?desiredRollup=HOURLY&mustUseDesiredRollup=true&from=$cm_extract_start_date&to=$cm_extract_curr_date&query=SELECT%20total_physical_memory_used_across_hosts,total_physical_memory_total_across_hosts,100*total_physical_memory_used_across_hosts/total_physical_memory_total_across_hosts%20as%20cluster_memory_percent_usage%20WHERE%20category=CLUSTER'"
+
+    cm_ClusterCPUUtilization=cmClusterCPUUtilization_$curr_date.json
+    cm_ClusterMemoryUtilization=cmClusterMemoryUtilization_$curr_date.json
+
+    eval $cmClusterCPUUtilization > $CM_out_dir$cm_ClusterCPUUtilization
+    eval $cmClusterMemoryUtilization > $CM_out_dir$cm_ClusterMemoryUtilization
 
 }
 
@@ -426,29 +440,37 @@ extract_cm_info() {
         http="http://"
     fi 
 
-    ###########################################
-    ### Cloudera Manager Metrics
-    ###########################################
 
     CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'` 
 
-    cmservices="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services"
-    cmhost="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/hosts"
-    cmconfig="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/cm/allHosts/config"
-    cmexport="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/export"
-    
-    cm_services=cmServices_$curr_date.json
-    cm_hosts=cmHosts_$curr_date.json
-    cm_config=cmConfig_$curr_date.json
-    cm_export=cmExport_$curr_date.json
-    
-    eval $cmservices > $CM_out_dir$cm_services
-    eval $cmhost > $CM_out_dir$cm_hosts
-    eval $cmconfig > $CM_out_dir$cm_config
-    eval $cmexport > $CM_out_dir$cm_export 
 
     ###########################################
-    #### Extract Cloudera TimeSeries metrics 
+    ### Cloudera Manager Metrics (Only for Initial Run)
+    ###########################################
+
+    if [ "$INITIAL_EXEC" == "Y" ]; then 
+        
+        cmservices="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services"
+        cmhost="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/hosts"
+        cmconfig="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/cm/allHosts/config"
+        cmexport="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/export"
+        
+        cm_services=cmServices_$curr_date.json
+        cm_hosts=cmHosts_$curr_date.json
+        cm_config=cmConfig_$curr_date.json
+        cm_export=cmExport_$curr_date.json
+        
+        eval $cmservices > $CM_out_dir$cm_services
+        eval $cmhost > $CM_out_dir$cm_hosts
+        eval $cmconfig > $CM_out_dir$cm_config
+        eval $cmexport > $CM_out_dir$cm_export 
+
+    fi
+
+
+
+    ###########################################
+    #### Extract Cloudera TimeSeries metrics (Daily Extract due to CM Limitations)
     ###########################################
 
     extract_cm_timeseries 
@@ -515,7 +537,18 @@ extract_impala() {
              cmimpala="$CURL -X GET -u ${CM_ADMIN_USER}:${CM_ADMIN_PASSWORD} '$URL_FILTER'"
 
              cm_impalaext=impala_${DAY}_${HOUR}_${MINUTE_START}_${MINUTE_END}_${OFFSET}.json
-             eval $cmimpala > $IMPALA_out_dir$cm_impalaext
+
+             impalaout=`eval $cmimpala`
+             impalaoutexists=`echo $impalaout |grep queryId |wc -l`
+
+             if [ $impalaoutexists == 0 ]; then 
+                continue
+             else  
+                echo $impalaout > $IMPALA_out_dir$cm_impalaext
+	         fi
+
+             #eval $cmimpala > $IMPALA_out_dir$cm_impalaext
+             
              #echo $IMPALA_out_dir$cm_impalaext
           done
         done
@@ -541,12 +574,12 @@ extract_cdp() {
         extract_spark_logs
     fi
     
-    if [ "$INITIAL_EXEC" == "Y" ]; then 
+    #if [ "$INITIAL_EXEC" == "Y" ]; then 
        
-       extract_cm_info
+    extract_cm_info
        #extract_sentry_policies
 
-    fi
+    #fi
    
     ####################################
     ## Extracting Impala 
