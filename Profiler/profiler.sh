@@ -440,7 +440,6 @@ extract_cm_info() {
         http="http://"
     fi 
 
-
     CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'` 
 
 
