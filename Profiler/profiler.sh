@@ -169,11 +169,9 @@ extract_yarn_metrics()  {
 
 extract_yarn_scheduler()  {
 
-    rmscheduler=`$activerm_url$rmscheduler $SEARCH_REPLACE`
     schedulerdump=YarnSchedulerDump_$curr_date.json
 
-    echo $rmscheduler  >  $yarn_out_dir$schedulerdump
-
+    eval $activerm_url$rmscheduler $SEARCH_REPLACE  >  $yarn_out_dir$schedulerdump
 }
 
 
