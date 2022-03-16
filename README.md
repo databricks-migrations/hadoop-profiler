@@ -394,3 +394,17 @@ Execute the following on the edge node or a host that can reach the YARN Resourc
 >### 4. Output: 
 
 All the extracts are stored as part of the Output Folder within their respective components Sub-folders.
+  
+>### 5. How to mask data:
+
+The profiler allows you to invoke a search and replace command to sanitize data as its extracted from CM/Ambari/Hadoop Services.  The default implementation is using the sed command.  Provided is a sed.txt file that acts as the sed command file.   The profiler assumes this file exists in its execution directory.  You can use a different implementation as long as the command you invoke can accept input from stdin and will write results to stdout. Please remember to include the "|" operator in the SEARCH_REPLACE parameter.
+  
+To use the default data masker, uncomment the SEARCH_REPLACE parameter.  Modify the sed.txt file as required.
+  
+NOTE: To ensure the data can be analyzed properly, ensure hosts have an obfuscated and unique value: 
+- For IP addresses, set up a replacement rule to substitute a subset of the leading numbers of the address e.g. first 2 decimals in address
+- For hostnames, set up a replacement rule to substitute host domains, or prefix
+
+
+
+
