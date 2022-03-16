@@ -1,0 +1,4 @@
+# example sed command file, replace original_text and new_text with relevant values
+# you can add more sed commands in this file to do further output modifications
+s/original_text/new_text/g
+s/internal.cloudapp/rginternal.cloud/g
