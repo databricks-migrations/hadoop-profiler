@@ -401,7 +401,7 @@ The profiler allows you to invoke a search and replace command to sanitize data 
   
 To use the default data masker, uncomment the SEARCH_REPLACE parameter.  Modify the sed.txt file as required.
   
-NOTE: To ensure the data can be analyzed properly, ensure hosts have an obfuscated and unique value: 
+NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs must be unique: 
 - For IP addresses, set up a replacement rule to substitute a subset of the leading numbers of the address e.g. first 2 decimals in address
 - For hostnames, set up a replacement rule to substitute host domains, or prefix
 
