@@ -2,3 +2,7 @@
 # you can add more sed commands in this file to do further output modifications
 s/original_text/new_text/g
 s/internal.cloudapp/rginternal.cloud/g
+# Uncommenting the filters belong may impact the analysis of the Impala workloads.
+#s/"connected_user" : "[a-zA-Z0-9/@._\-]*"/"connected_user" : "redacted"/g
+#s/"original_user" : "[a-zA-Z0-9/@._\-]*"/"original_user" : "redacted"/g
+#s/"user" : "[a-zA-Z0-9/@._\-]*"/"user" : "redacted"/g
