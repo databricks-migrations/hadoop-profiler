@@ -387,7 +387,7 @@ Execute the following on the edge node or a host that can reach the YARN Resourc
 5. Make sure the Output extracts have the data extracted. 
 
 **Daily extraction :**  
-- Schedule profiler.sh to run daily for at least 2 weeks. 
+- Schedule profiler.sh to run daily for at least 2 weeks.  Please create a cron job to execute this script.  For environments with more than 10K jobs submitted per day in YARN,  consider running this script once an hour.
 - Frequency of Excution: YARN has a default log  aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications)  and starts cleaning up the older application history. It is important to check this value and schedule the extracts appropriately to capture all the application. 
 - Note:  At any given time, if there is a need to initial extract, delete the folder "ExtractTracker" with in the Profiler directory.  
 
