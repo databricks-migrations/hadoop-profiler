@@ -290,6 +290,7 @@ extract_ambari_bp() {
     ### Ambari RM and HDFS Metrics
 
     ambariHDFS="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/HDFS/components/NAMENODE?fields=metrics"
+    ambariDN="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/HDFS/components/DATANODE?fields=metrics"
     ambariRM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/RESOURCEMANAGER"
     ambariNM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/NODEMANAGER"
 
@@ -300,6 +301,7 @@ extract_ambari_bp() {
     stackpath=AmbariStack_$curr_date.json
 
     ambarihdfspath=AmbariHDFS_$curr_date.json
+    ambaridnpath=AmbariDN_$curr_date.json
     ambarirmpath=AmbariRM_$curr_date.json
     ambarinmpath=AmbariNM_$curr_date.json
 
@@ -310,6 +312,7 @@ extract_ambari_bp() {
     eval $ambariStack $SEARCH_REPLACE > $ambari_out_dir$stackpath
 
     eval $ambariHDFS $SEARCH_REPLACE > $ambari_out_dir$ambarihdfspath
+    eval $ambariDN $SEARCH_REPLACE > $ambari_out_dir$ambaridnpath
     eval $ambariRM $SEARCH_REPLACE > $ambari_out_dir$ambarirmpath
     eval $ambariNM $SEARCH_REPLACE > $ambari_out_dir$ambarinmpath
 
