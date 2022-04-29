@@ -289,7 +289,7 @@ extract_ambari_bp() {
 
     ### Ambari RM and HDFS Metrics
 
-    ambariHDFS="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/HDFS/components/NAMENODE"
+    ambariHDFS="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/HDFS/components/NAMENODE?fields=metrics"
     ambariRM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/RESOURCEMANAGER"
     ambariNM="$CURL -X GET -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http$ambari_url/api/v1/clusters/$CLUSTER_NAME/services/YARN/components/NODEMANAGER"
 
