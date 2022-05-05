@@ -636,6 +636,7 @@ check_run_status() {
 ################################## START of Main Code ####################################################
 ##########################################################################################################
 
+echo "Trigger Time: " $curr_date
 echo "Dist: "  $DISTRIBUTION
 
 #echo " Creating Output Directory : "
