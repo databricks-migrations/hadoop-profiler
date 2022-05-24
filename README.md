@@ -407,4 +407,138 @@ NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs 
 
 
 
+>### FAQs:
+1. Does the  profiler extract any sensitive data ? 
 
+ No.  The profiler has zero access to the customer data nor code.  The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera Manager and collects:
+ 
+
+Environment Information
+Cluster Name
+
+Software Version
+
+Hostnames / IPs / ports
+
+IP addresses
+
+Rack IDs
+
+CPU / Memory / Disk Information
+
+Software Installation Directories
+
+Configuration Directories
+
+
+All Hadoop Services
+Service Name
+
+Software version
+
+Hostnames / IPs / ports
+
+Service status
+
+Configuration Settings
+
+Passwords are redacted / omitted by Ambari/Cloudera Manager
+
+Log directories
+
+ 
+
+Ranger
+Hostnames / IPs / ports
+
+Configuration information
+
+User names
+
+Group names
+
+Policy (permission details)
+
+ 
+
+YARN
+Hostnames / IPs / ports
+
+Job name
+
+May contain partial SQL Query Text
+
+User name
+
+Queue name
+
+Numerics - Metrics - vcores, memory, elapsed time, etc
+
+Diagnostics String  - may contain full SQL Query Text
+
+
+Impala
+Hostnames / IPs / ports
+
+Usernames
+
+Pool names
+
+Numerics - Metrics - memory, elapsed time, etc
+
+Full SQL Query Text
+
+ 
+
+Spark Applications
+Hostnames and ports
+
+Directory names to log location
+
+Numeric metrics 
+
+ 
+
+ 
+
+2. Does running the profiler has any impact on the cluster performance ? 
+
+The profiler just utilizes the REST API commands which are exposed by YARN RM  / Ambari / Cloudera Manager.  Executing the profiler once daily should not cause any performance issues. 
+
+ 
+
+3. Does the profiler transmit any data to external URL or  collectors ?  
+
+No. All the results are stored as part of the Output folder within the Profiler base folder. The profiler cannot transmit any data  in an automated way and has to be manually shared by the customer (either by email or by using the upload script)  
+
+ 
+
+4. Is the output data encrypted or stored in a custom format ?  
+
+No. The output data is in plaintext (csv or json).  This data can be sanitized as needed by the customer
+
+ 
+
+5. My customer doesn’t have access to Cloudera Manager / Ambari, can the profiler still collect data ?  
+
+Yes.  Set the DISTRIBUTION=OTH in the profiler.conf file.  With this setting, the profiler will extract YARN and optionally Spark History data.
+
+ 
+
+ 6. Does the profiler work against a Mesos environment?
+
+No.  However, from Mesos, you can manually collect container metrics which include cores/memory, and execution time.  This can be used to derive a DBU cost.  Reach out to the SWAT team for more details.
+
+ 
+
+7. Does the profiler support my version of CDH, HDP, or CDP?
+
+The profiler collection script supports CDH 5.x, CDH 6.x HDP 2.x, HDP 3.x, HDI 3.x, HDI 4.x, CDP 7.x Private Cloud (YARN/IMPALA workloads).  
+
+In general, the REST endpoints used are consistent across Hadoop distribution versions with the exception of Cloudera Manager.   There is a setting in profiler.conf (CM_API_VERSION) which should be set with the corresponding API version.  The profiler collection script will use this version information when assembling the Cloudera Manager REST endpoint URL.
+
+ 
+
+8. How do I determine the frequency of execution for Incremental extracts ?
+
+It is important to note that YARN has a default log aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications) and starts cleaning up the older application history.Please check this value (in yarn configs - either yarn-defaults or yarn-site.xml)  and schedule the extracts appropriately to capture all the application. For Example:  If the customer is running more than 10K jobs per day, make sure to decrease the frequency to run  every 6-12 hours (instead of a day). 
