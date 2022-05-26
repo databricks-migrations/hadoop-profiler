@@ -407,7 +407,10 @@ NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs 
 - For IP addresses, set up a replacement rule to substitute a subset of the leading numbers of the address e.g. first 2 decimals in address
 - For hostnames, set up a replacement rule to substitute host domains, or prefix
 
-### 6. Scheduling the Profiler:
+<br>
+
+>### 6. Scheduling the profiler:
+
 
 If the profiler cannot be scheduled using cron or other scheduler, use the schedule_profiler.sh to trigger the profiler in the background using nohub. 
 
