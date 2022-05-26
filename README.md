@@ -391,6 +391,8 @@ Execute the following on the edge node or a host that can reach the YARN Resourc
 - Frequency of Excution: YARN has a default log  aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications)  and starts cleaning up the older application history. It is important to check this value and schedule the extracts appropriately to capture all the application. 
 - Note:  At any given time, if there is a need to initial extract, delete the folder "ExtractTracker" with in the Profiler directory.  
 
+- If we cannot schedule the profiler using cron or any enterprise scheduler tools,  Refer to Section 6 on how to schedule the profiler. 
+
 >### 4. Output: 
 
 All the extracts are stored as part of the Output Folder within their respective components Sub-folders.
@@ -405,9 +407,57 @@ NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs 
 - For IP addresses, set up a replacement rule to substitute a subset of the leading numbers of the address e.g. first 2 decimals in address
 - For hostnames, set up a replacement rule to substitute host domains, or prefix
 
+### 6. Scheduling the Profiler:
+
+If the profiler cannot be scheduled using cron or other scheduler, use the schedule_profiler.sh to trigger the profiler in the background using nohub. 
+
+For Example : <font face="Courier New"> nohub ./schedule_profiler.sh &>/dev/null & </font>
+
+The scheduler is a  depends on the following configurations in the config file: 
+
+<table>
+<tbody>
+<tr>
+
+<td>
+<p><strong>Properties</strong></p>
+</td>
+<td>
+<p><strong>Description</strong></p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p><span style="font-weight: 400;">FREQUENCY_OF_EXECUTION</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Determines the frequency of Execution (in hours) in a day(Max 24 hours). For Example if the value is set as 5, the profiler will be executed every 5 hours. &nbsp;</span></p>
+<br />
+</td>
+</tr>
+
+<tr>
+<td>
+<p><span style="font-weight: 400;">NO_OF_DAYS</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Total number of days to run the profiler. Typically 14 days.&nbsp;</span></p>
+<br />
+</td>
+</tr>
 
 
->### FAQ:  
+</tbody>
+</table>
+
+The profiler execution logs can be found in the <font face="Courier New"> /logs/profiler_extracts.log </font> file in the profiler folder
+
+<br>
+<br>
+
+
+>### FAQ :  
 
 #### 1. Does the  profiler extract any sensitive data ? 
 
