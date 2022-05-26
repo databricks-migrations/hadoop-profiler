@@ -414,7 +414,7 @@ NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs 
 
 If the profiler cannot be scheduled using cron or other scheduler, use the schedule_profiler.sh to trigger the profiler in the background using nohub. 
 
-For Example : <font face="Courier New"> nohub ./schedule_profiler.sh &>/dev/null & </font>
+For Example : <font face="Courier"> nohub ./schedule_profiler.sh &>/dev/null & </font>
 
 The scheduler is a  depends on the following configurations in the config file: 
 
