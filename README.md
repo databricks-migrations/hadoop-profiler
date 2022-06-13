@@ -28,24 +28,105 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 <tr>
 <td>&nbsp;</td>
 <td>
-<p><strong>Properties</strong></p>
+<p><strong>PROFILER_OUTPUT_PATH</strong></p>
 </td>
 <td>
-<p><strong>Description</strong></p>
+<p><strong>Location where the profiler outputs are stored. If not provided, the output will be written in the default profiler folder.</strong></p>
+</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+<td>
+<p>Properties</p>
+</td>
+<td>
+<p> Description</p>
 </td>
 </tr>
 
 <tr>
 <td rowspan="8">
-    <p><span style="font-weight: 400;">  </span></p>
-    </td>
-    <td>
-    <p><span style="font-weight: 400;">PROFILER_OUTPUT_PATH</span></p>
-    </td>
-    <td>
-    <p><span style="font-weight: 400;">
-    <br />
-    <p><span style="font-weight: 400;">Location where the profiler outputs are stored. If not provided, the output will be written in the default profiler folder.</span></p>
+<p><span style="font-weight: 400;">YARN Resource manager Configs</span></p>
+</td>
+
+
+
+<td>
+<p><span style="font-weight: 400;">RM_SERVER_URL</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">YARN Resource manager URL. Comma separated URLs in case of HA&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">Use Cloudera Manager or Ambari, navigate to YARN, open Resource Manager and copy the host name from URL in your browser</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">RM_SERVER_PORT</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Resource Manager Port&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">(see instructions above)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">RM_SECURE</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Is https enabled (Y/N)&nbsp;</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">RM_KERBERIZED</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Is Kerberized (Y/ N)&nbsp;</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">GOT_KEYTAB</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">To Automate the extract in case of a Kerberized Environment.</span></p>
+<br />
+<p><span style="font-weight: 400;">USE Y, if you want script to run kinit based on parameters below</span></p>
+<br />
+<p><span style="font-weight: 400;">USE N, if you already have a kerberos ticket active in the environment. (in this case, script will not try to do kini and you don't&nbsp; need kerberos settings below)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">KEYTAB_PATH</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Path to the Keytab file</span></p>
+<br />
+<p><span style="font-weight: 400;">(use only when GOT_KEYTAB=Y)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">KEYTAB</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Keytab file Name&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">(use only when GOT_KEYTAB=Y)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">PRINCIPAL</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Keytab Principal for Kinit&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">(use only when GOT_KEYTAB=Y)</span></p>
 </td>
 </tr>
 
