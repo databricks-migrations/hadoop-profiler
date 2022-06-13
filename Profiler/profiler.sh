@@ -674,8 +674,18 @@ check_run_status() {
 ################################## START of Main Code ####################################################
 ##########################################################################################################
 
+
 echo "Trigger Time: " $curr_date
 echo "Dist: "  $DISTRIBUTION
+
+if [ -z $1 ]; then 
+   echo " Please enter the secret Key to decrypt the password .. "
+   echo " Syntax : ./profiler.sh mySecretKey " 
+   exit 1 
+else 
+   saltKey=$1    
+fi 
+
 
 #echo " Creating Output Directory : "
 mkdir -p $output_dir
@@ -689,10 +699,17 @@ check_run_status
 if [ "$DISTRIBUTION" == "HDP" ]; then
 
       echo " Distribution is Hortonworks. Starting  Extact ... "
+
+      AMBARI_ADMIN_PASSWORD=`echo $AMBARI_ADMIN_PASSWORD | openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
+      RANGER_PWD=`echo $RANGER_PWD | openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
+
       extract_hdp
 
 else if [ "$DISTRIBUTION" == "CDH" ]; then
       echo " Distribution is Cloudera . Starting Extract ... "
+      
+      CM_ADMIN_PASSWORD=`echo $CM_ADMIN_PASSWORD| openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
+  
       extract_cdp
 
       else if [ "$DISTRIBUTION" == "OTH" ]; then
