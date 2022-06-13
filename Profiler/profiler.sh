@@ -33,7 +33,12 @@ export extract_date=`date +"%Y-%m-%d"`
 
 export yesterday_impala_extract_dt=`date -d '-1 day' +"%Y-%m-%d"`
 
-export output_dir=`dirname ${0}`/Output/
+if [ -z $PROFILER_OUTPUT_PATH ]; then 
+    export output_dir=`dirname ${0}`/Output/
+else
+    export output_dir=${PROFILER_OUTPUT_PATH}/Output/
+fi 
+
 export runtracker_dir=`dirname ${0}`/ExtractTracker/
 
 export CURL='curl '
@@ -485,7 +490,8 @@ extract_impala() {
 
     echo "Extracting Impala Queries "
 
-    IMPALA_out_dir=$output_dir/IMPALA/$extract_date/
+    IMPALA_out_dir=${output_dir}IMPALA/$extract_date/
+    echo $IMPALA_out_dir
     mkdir -p $IMPALA_out_dir
 
     if [ "$CM_SECURED" == "Y" ]; then
@@ -555,7 +561,7 @@ extract_impala() {
       done
     done
 
-    if grep -q "Impala query scan limit reached" $IMPALA_out_dir/*.json; then
+    if grep -q "Impala query scan limit reached" ${IMPALA_out_dir}*.json; then
       echo -e "\n\n\n\n\n\n\n********************************"
       echo "IMPALA QUERY SCAN LIMIT HIT, PLEASE REDUCE CM_IMPALA_INTERVAL_MINUTES AND INCREASE CM_IMPALA_PAGES"
       echo -e "********************************\n\n\n\n\n\n\n\n\n"
@@ -626,7 +632,8 @@ check_run_status() {
          ### Check for Ambari / CM / NodeDumps to confirm if the initial extract exists 
 
 	if [ "$DISTRIBUTION" == "HDP" ]; then
-            filecheck=`find ./Output/AMBARI/*/ -name Ambari*.json  | wc -l`
+
+            filecheck=`find ${output_dir}AMBARI/*/ -name Ambari*.json  | wc -l`
 
             if [ $filecheck -le 9 ]; then 
                INITIAL_EXEC="Y"
@@ -635,7 +642,7 @@ check_run_status() {
 
   	    else if [ "$DISTRIBUTION" == "CDH" ]; then
 
-                 filecheck=`find ./Output/CM/*/ -name cm*.json  | wc -l`
+                 filecheck=`find ${output_dir}CM/*/ -name cm*.json  | wc -l`
 
                  if [ $filecheck -le 10 ]; then 
                     INITIAL_EXEC="Y"
@@ -644,7 +651,7 @@ check_run_status() {
 
 	      else if [ "$DISTRIBUTION" == "OTH" ]; then
 
-                      yarnNodes=`find ./Output/YARN/*/ -name YarnNodesDump*.json  | wc -l`
+                      yarnNodes=`find ${output_dir}YARN/*/ -name YarnNodesDump*.json  | wc -l`
 
                       if [ $yarnNodes -le 1 ]; then 
                            INITIAL_EXEC="Y"

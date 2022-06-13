@@ -37,6 +37,22 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 
 <tr>
 <td rowspan="8">
+    <p><span style="font-weight: 400;">  </span></p>
+    </td>
+    <td>
+    <p><span style="font-weight: 400;">PROFILER_OUTPUT_PATH</span></p>
+    </td>
+    <td>
+    <p><span style="font-weight: 400;">
+    <br />
+    <p><span style="font-weight: 400;">Location where the profiler outputs are stored. If not provided, the output will be written in the default profiler folder.</span></p>
+</td>
+</tr>
+
+
+
+<tr>
+<td rowspan="8">
 <p><span style="font-weight: 400;">YARN Resource manager Configs</span></p>
 </td>
 <td>
