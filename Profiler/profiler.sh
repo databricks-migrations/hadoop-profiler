@@ -617,10 +617,48 @@ check_run_status() {
     tracker_file=$runtracker_dir"/initialrun.txt"
 
     if [ -f "$tracker_file" ]; then
-         INITIAL_EXEC="N"
-          echo " ####################################################################################################"
-          echo "  Processing Incremental Extract ... "
-          echo " ####################################################################################################"
+
+        INITIAL_EXEC="N"
+        echo " ####################################################################################################"
+        echo "  Incremental Extract ... Checking for other $DISTRIBUTION files"
+        echo " ####################################################################################################"
+
+         ### Check for Ambari / CM / NodeDumps to confirm if the initial extract exists 
+
+	if [ "$DISTRIBUTION" == "HDP" ]; then
+            filecheck=`find ./Output/AMBARI/*/ -name Ambari*.json  | wc -l`
+
+            if [ $filecheck -le 9 ]; then 
+               INITIAL_EXEC="Y"
+               echo "Missing Ambari Configs ... Reverting to Initial Extract ... " 
+            fi
+
+  	    else if [ "$DISTRIBUTION" == "CDH" ]; then
+
+                 filecheck=`find ./Output/CM/*/ -name cm*.json  | wc -l`
+
+                 if [ $filecheck -le 10 ]; then 
+                    INITIAL_EXEC="Y"
+                    echo "Missing Cloudera Manager Configs ... Reverting to Initial Extract ... " 
+                 fi 
+
+	      else if [ "$DISTRIBUTION" == "OTH" ]; then
+
+                      yarnNodes=`find ./Output/YARN/*/ -name YarnNodesDump*.json  | wc -l`
+
+                      if [ $yarnNodes -le 1 ]; then 
+                           INITIAL_EXEC="Y"
+                           echo "Missing Yarn Nodes ... Reverting to Initial Extract ... " 
+                      fi
+                 
+                   else
+		      echo  " Invalid Distribution"
+		      exit 1
+                   fi
+              fi
+         fi
+
+
     else
          echo "Initial Run" > $tracker_file
          INITIAL_EXEC="Y"
@@ -650,11 +688,11 @@ check_run_status
 
 if [ "$DISTRIBUTION" == "HDP" ]; then
 
-      echo " Distribution is Hortonworks. About to Extact ... "
+      echo " Distribution is Hortonworks. Starting  Extact ... "
       extract_hdp
 
 else if [ "$DISTRIBUTION" == "CDH" ]; then
-      echo " Distribtuion is Cloudera . Starting Extract ... "
+      echo " Distribution is Cloudera . Starting Extract ... "
       extract_cdp
 
       else if [ "$DISTRIBUTION" == "OTH" ]; then
