@@ -28,20 +28,20 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 <tr>
 <td>&nbsp;</td>
 <td>
-<p><strong>PROFILER_OUTPUT_PATH</strong></p>
+<p><strong>Properties</strong></p>
 </td>
 <td>
-<p><strong>Location where the profiler outputs are stored. If not provided, the output will be written in the default profiler folder.</strong></p>
+<p><strong>Description</strong></p>
 </td>
 </tr>
 
 <tr>
 <td>&nbsp;</td>
 <td>
-<p>Properties</p>
+<p>PROFILER_OUTPUT_PATH</p>
 </td>
 <td>
-<p> Description</p>
+<p> Location where the profiler outputs are stored. If not provided, the output will be written in the default profiler folder.</p>
 </td>
 </tr>
 
