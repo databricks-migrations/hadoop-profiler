@@ -36,6 +36,103 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 </tr>
 
 <tr>
+<td>&nbsp;</td>
+<td>
+<p>PROFILER_OUTPUT_PATH</p>
+</td>
+<td>
+<p> Location where the profiler outputs are stored. If not provided, the output will be written in the default profiler folder.</p>
+</td>
+</tr>
+
+<tr>
+<td rowspan="8">
+<p><span style="font-weight: 400;">YARN Resource manager Configs</span></p>
+</td>
+
+
+
+<td>
+<p><span style="font-weight: 400;">RM_SERVER_URL</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">YARN Resource manager URL. Comma separated URLs in case of HA&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">Use Cloudera Manager or Ambari, navigate to YARN, open Resource Manager and copy the host name from URL in your browser</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">RM_SERVER_PORT</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Resource Manager Port&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">(see instructions above)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">RM_SECURE</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Is https enabled (Y/N)&nbsp;</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">RM_KERBERIZED</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Is Kerberized (Y/ N)&nbsp;</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">GOT_KEYTAB</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">To Automate the extract in case of a Kerberized Environment.</span></p>
+<br />
+<p><span style="font-weight: 400;">USE Y, if you want script to run kinit based on parameters below</span></p>
+<br />
+<p><span style="font-weight: 400;">USE N, if you already have a kerberos ticket active in the environment. (in this case, script will not try to do kini and you don't&nbsp; need kerberos settings below)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">KEYTAB_PATH</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Path to the Keytab file</span></p>
+<br />
+<p><span style="font-weight: 400;">(use only when GOT_KEYTAB=Y)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">KEYTAB</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Keytab file Name&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">(use only when GOT_KEYTAB=Y)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">PRINCIPAL</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">Keytab Principal for Kinit&nbsp;</span></p>
+<br />
+<p><span style="font-weight: 400;">(use only when GOT_KEYTAB=Y)</span></p>
+</td>
+</tr>
+
+
+
+<tr>
 <td rowspan="8">
 <p><span style="font-weight: 400;">YARN Resource manager Configs</span></p>
 </td>
@@ -382,8 +479,13 @@ Execute the following on the edge node or a host that can reach the YARN Resourc
 1. git clone -b main https://github.com/databricks-migrations/hadoop-profiler.git
 2. cd Profiler/Profiler
 3. Update [profiler.conf](Profiler/profiler.conf) to required settings depending on your Hadoop distribution. The code automatically determines if its an Initial or Incremental Extract. 
-3. chmod +x profiler.sh 
-4. ./profiler.sh 
+4. Password Encryption:  
+    - Open text passwords are not allowed in the configs file and passwords needs to be encrypted using Openssl.
+    - Use the following command to encrypt the password.
+         - <font face="Courier New"> echo 'Admin Passwords' | openssl enc -base64 -e -aes-256-cbc -nosalt -pass pass:mySecretPassKey </font>
+    - <b>CAUTION: </b> Keep your secret Key 'mySecretPassKey' safe and pass it as an arugment to the profiler. Refer to Step 4. 
+3. <font face="Courier New"> chmod +x profiler.sh </font>
+4. <font face="Courier New"> ./profiler.sh mySecretPassKey </font>
 5. Make sure the Output extracts have the data extracted. 
 
 **Daily extraction :**  
@@ -412,9 +514,11 @@ NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs 
 >### 6. Scheduling the profiler:
 
 
-If the profiler cannot be scheduled using cron or other scheduler, use the schedule_profiler.sh to trigger the profiler in the background using nohub. 
+If the profiler cannot be scheduled using cron or other scheduler, use the schedule_profiler.sh to trigger the profiler in the background using nohup. 
+Make sure to pass the secret Key  as an arugment to the profiler.
 
-For Example : <font face="Courier"> nohub ./schedule_profiler.sh &>/dev/null & </font>
+
+- For Example : <font face="Courier"> nohup ./schedule_profiler.sh mySecretPassKey &>/dev/null & </font>
 
 The scheduler is a  depends on the following configurations in the config file: 
 
@@ -469,7 +573,7 @@ No.  The profiler has zero access to the customer data nor code.
 The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera Manager and collects:
  
 
-###### Environment Information
+### <u> Environment Information </u>
 <li> Cluster Name  
 <li> Software Version    
 <li> Hostnames / IPs / ports
@@ -480,7 +584,7 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 <li> Configuration Directories
 
 
-###### All Hadoop Services
+### <u> All Hadoop Services </u>
 <li> Service Name
 <li> Software version
 <li> Hostnames / IPs / ports
@@ -489,7 +593,7 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 <li> Passwords are redacted / omitted by Ambari/Cloudera Manager
 
 
-###### Ranger
+### <u> Ranger </u>
 <li> Hostnames / IPs / ports
 <li> Configuration information
 <li> User names
@@ -497,7 +601,7 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 <li> Policy (permission details)
 
  
-###### YARN
+### <u> YARN </u>
 <li> Hostnames / IPs / ports
 <li> Job name
 <li> May contain partial SQL Query Text
@@ -507,7 +611,7 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 <li> Diagnostics String  - may contain full SQL Query Text
 
 
-###### Impala
+### <u> Impala </u>
 <li> Hostnames / IPs / ports
 <li> Usernames
 <li> Pool names
@@ -515,7 +619,7 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 <li> Full SQL Query Text
 
  
-###### Spark Applications
+### <u> Spark Applications </u>
 <li> Hostnames and ports
 <li> Directory names to log location
 <li> Numeric metrics     

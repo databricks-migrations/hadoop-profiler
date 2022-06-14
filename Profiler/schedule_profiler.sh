@@ -36,10 +36,9 @@ run_profiler() {
    while [ $curr_date != $extract_end_date ];  
    do
       
-      . profiler.sh  2>&1 | tee ./logs/profiler_extracts.log
+      . profiler.sh $saltKey  2>&1 | tee ./logs/profiler_extracts.log
       sleep $sleep_time
    done
-
 
 }
 
@@ -48,6 +47,14 @@ run_profiler() {
 ##########################################################################################################
 ################################## START of Main Code ####################################################
 ##########################################################################################################
+
+if [ -z $1 ]; then
+   echo " Please enter the secret Key to decrypt the password .. "
+   echo " Syntax : ./schedule_profiler.sh mySecretKey "
+   exit 1
+else
+   saltKey=$1
+fi
 
 
 echo "Triggering profiler for ${NO_OF_DAYS} Days  on a ${FREQUENCY_OF_EXECUTION} Hour frequency" 
