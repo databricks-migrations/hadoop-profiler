@@ -669,3 +669,9 @@ In general, the REST endpoints used are consistent across Hadoop distribution ve
 #### 8. How do I determine the frequency of execution for Incremental extracts ?
 
 It is important to note that YARN has a default log aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications) and starts cleaning up the older application history.Please check this value (in yarn configs - either yarn-defaults or yarn-site.xml)  and schedule the extracts appropriately to capture all the application. For Example:  If the customer is running more than 10K jobs per day, make sure to decrease the frequency to run  every 6-12 hours (instead of a day). 
+
+#### 9. How much storage is needed to run the profiler?
+    
+Typically the profiler will consume anywhere between 200-300MB of disk space after a 2 week run.  This can vary due to the activity of the hadoop cluster.  To be safe, ensure the location the profiler will run has at least 10GB of free space.
+    
+      
