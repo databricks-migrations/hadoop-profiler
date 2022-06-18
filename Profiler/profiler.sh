@@ -82,6 +82,9 @@ check_kerberos()  {
 
 	## If HDI Flag is enabled then add the user id and password for YARN UI
         if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
+	      AMBARI_ADMIN_PASSWORD_NOQT=$(echo $AMBARI_ADMIN_PASSWORD | sed 's/\"//g')
+	      
+	      url_noqt=$(echo $CURL -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD_NOQT $http)
 	      url=$(echo $CURL -u $AMBARI_ADMIN_USERID:$AMBARI_ADMIN_PASSWORD $http)
 	else
 
@@ -101,19 +104,19 @@ check_active_rm() {
 
     for rms in $rmserver
     do
-       echo $rms
+       #echo $rms
 
        if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
-           clusterinfourl=$url$rms$clusterinfo
+           clusterinfourl=$url_noqt$rms$clusterinfo
        else
            clusterinfourl=$url$rms:$RM_SERVER_PORT$clusterinfo
        fi
 
-       echo $clusterinfourl
 
-       activerm=`$clusterinfourl  |grep ACTIVE |wc -l`
+       activerm=`$clusterinfourl`
+      
+       activerm=`$clusterinfourl  | grep ACTIVE | wc -l`
 
-       #echo $activerm
 
        if [ $activerm == 1 ]; then
            if [[ $DISTRIBUTION == 'HDP' && $IS_HDI == 'Y' ]]; then
@@ -126,7 +129,7 @@ check_active_rm() {
        fi
     done
 
-    echo "Active RM URL is : " $activerm_url
+    echo "Active RM URL is : " $rms
 
     if [ "$activerm_url" == "" ]; then
          echo "Active Resource manager URL not found ... aborting the process ...  "
@@ -707,15 +710,17 @@ if [ "$DISTRIBUTION" == "HDP" ]; then
 
       echo " Distribution is Hortonworks. Starting  Extact ... "
 
-      AMBARI_ADMIN_PASSWORD=`echo $AMBARI_ADMIN_PASSWORD | openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
-      RANGER_PWD=`echo $RANGER_PWD | openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
+
+      AMBARI_ADMIN_PASSWORD=`echo $AMBARI_ADMIN_PASSWORD | openssl enc -base64 -d -aes-256-cbc -pbkdf2 -nosalt -pass pass:$saltKey`
+
+      RANGER_PWD=`echo $RANGER_PWD | openssl enc -base64 -d -aes-256-cbc -pbkdf2 -nosalt -pass pass:$saltKey`
 
       extract_hdp
 
 else if [ "$DISTRIBUTION" == "CDH" ]; then
       echo " Distribution is Cloudera . Starting Extract ... "
       
-      CM_ADMIN_PASSWORD=`echo $CM_ADMIN_PASSWORD| openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
+      CM_ADMIN_PASSWORD=`echo $CM_ADMIN_PASSWORD| openssl enc -base64 -d -aes-256-cbc -pbkdf2 -nosalt -pass pass:$saltKey`
   
       extract_cdp
 
