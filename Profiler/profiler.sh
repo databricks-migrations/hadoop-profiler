@@ -711,16 +711,16 @@ if [ "$DISTRIBUTION" == "HDP" ]; then
       echo " Distribution is Hortonworks. Starting  Extact ... "
 
 
-      AMBARI_ADMIN_PASSWORD=`echo $AMBARI_ADMIN_PASSWORD | openssl enc -base64 -d -aes-256-cbc -pbkdf2 -nosalt -pass pass:$saltKey`
+      AMBARI_ADMIN_PASSWORD=`echo $AMBARI_ADMIN_PASSWORD | openssl enc -base64 -d -aes-256-cbc  -nosalt -pass pass:$saltKey`
 
-      RANGER_PWD=`echo $RANGER_PWD | openssl enc -base64 -d -aes-256-cbc -pbkdf2 -nosalt -pass pass:$saltKey`
+      RANGER_PWD=`echo $RANGER_PWD | openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
 
       extract_hdp
 
 else if [ "$DISTRIBUTION" == "CDH" ]; then
       echo " Distribution is Cloudera . Starting Extract ... "
       
-      CM_ADMIN_PASSWORD=`echo $CM_ADMIN_PASSWORD| openssl enc -base64 -d -aes-256-cbc -pbkdf2 -nosalt -pass pass:$saltKey`
+      CM_ADMIN_PASSWORD=`echo $CM_ADMIN_PASSWORD| openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
   
       extract_cdp
 
