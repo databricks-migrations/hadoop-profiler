@@ -572,7 +572,7 @@ The profiler execution logs can be found in the <font face="Courier New"> /logs/
 #### 1. Does the  profiler extract any sensitive data ? 
 
 
-No.  The profiler has zero access to the customer data nor code.  
+No.  The profiler has zero access to the customer data or code.  
 The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera Manager and collects:
  
 
