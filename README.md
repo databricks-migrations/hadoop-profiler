@@ -8,14 +8,14 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 
 #### Metrics/Information extracted from a Hadoop Cluster
 1. YARN Application execution metrics, Host details and scheduler information.
-2. Spark History Server Metrics. 
+2. Spark History Server Metrics.
 3. CDH Specific information:
     - Services, Host and Components from Cloudera Manager (CM)
-    - Impala logs based on the input dates 
+    - Impala logs based on the input dates
 4. HDP (or HD Insight) Specific information:
     - The blueprint, Services, Host and Components from Ambari
     - Ranger policies and Repos (incase Ranger is used)
-    - NOTE: Set the HDI flag to Y or N if the distribution is Azure HD Insight. 
+    - NOTE: Set the HDI flag to Y or N if the distribution is Azure HD Insight.
 5. Other Distributions:
     - Only YARN and Spark History Server metrics are supported at this time.
 
@@ -474,42 +474,46 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 
 **Initial Extraction :**  
 It is recommended to run the first execution manualy to make sure correct configuration values.
-Execute the following on the edge node or a host that can reach the YARN Resource Manager or Ambari or CM. 
+Execute the following on the edge node or a host that can reach the YARN Resource Manager or Ambari or CM.
 
 1. git clone -b main https://github.com/databricks-migrations/hadoop-profiler.git
 2. cd Profiler/Profiler
-3. Update [profiler.conf](Profiler/profiler.conf) to required settings depending on your Hadoop distribution. The code automatically determines if its an Initial or Incremental Extract. 
+3. Update [profiler.conf](Profiler/profiler.conf) to required settings depending on your Hadoop distribution. The code automatically determines if its an Initial or Incremental Extract.
 4. Password Encryption:  
     - Open text passwords are not allowed in the configs file and passwords needs to be encrypted using Openssl.
     - Use the following command to encrypt the password value- replace `<admin password>` with the actual password
          - <font face="Courier New"> echo '"`<admin password>`"' | openssl enc -base64 -e -aes-256-cbc -nosalt -pass pass:mySecretPassKey </font>
-    - <b>CAUTION: </b> 
-    a. Make sure to enclose the password with in Single and Double Quotes (example provided above)  </b> 
-    b. Ignore the 'Deprecated Key' Warning (if any).  </b>
-    c. Keep your secret Key 'mySecretPassKey' safe and pass it as an arugment to the profiler. Refer to Step 4.   YOU MUST USE THE SAME SECRET KEY WHEN ENCRYPTING ANY PASSWORD!! </b> 
-    d. The output of the openssl command is the value you specify in the profiler.conf file e.g. Encrypt the Cloudera Manager password using the openssl command, then use output generate as the CM_ADMIN_PASSWORD value.  You will need to do this separately for RANGER_PWD (or AMBARI_ADMIN_PASSWORD).  </b> 
+    - <b>CAUTION:  
+    a. Make sure to enclose the password with in Single and Double Quotes (example provided above)  
+    b. Ignore the 'Deprecated Key' Warning (if any).  
+    c. Keep your secret Key 'mySecretPassKey' safe and pass it as an arugment to the profiler. Refer to Step 4.   YOU MUST USE THE SAME SECRET KEY WHEN ENCRYPTING ANY PASSWORD  
+    d. The output of the openssl command is the value you specify in the profiler.conf file  
+          e.g.
+          Encrypt the Cloudera Manager password using the openssl command.
+          Use output generate as the CM_ADMIN_PASSWORD value.   
+          You will need to do this separately for RANGER_PWD (or AMBARI_ADMIN_PASSWORD).  </b>
 3. <font face="Courier New"> chmod +x profiler.sh </font>
 4. <font face="Courier New"> ./profiler.sh mySecretPassKey </font>
-5. Make sure the Output extracts have the data extracted. 
+5. Make sure the Output extracts have the data extracted.
 
 **Daily extraction :**  
 - Schedule profiler.sh to run daily for at least 2 weeks.  Please create a cron job to execute this script.   For environments with more than 10K jobs submitted per day in YARN,  consider running this script once an hour. Otherwise, run once a day.
-- Frequency of Excution: YARN has a default log  aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications)  and starts cleaning up the older application history. It is important to check this value and schedule the extracts appropriately to capture all the application. 
+- Frequency of Excution: YARN has a default log  aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications)  and starts cleaning up the older application history. It is important to check this value and schedule the extracts appropriately to capture all the application.
 - Note:  At any given time, if there is a need to initial extract, delete the folder "ExtractTracker" with in the Profiler directory.  
 
-- If we cannot schedule the profiler using cron or any enterprise scheduler tools,  Refer to Section 6 on how to schedule the profiler. 
+- If we cannot schedule the profiler using cron or any enterprise scheduler tools,  Refer to Section 6 on how to schedule the profiler.
 
->### 4. Output: 
+>### 4. Output:
 
 All the extracts are stored as part of the Output Folder within their respective components Sub-folders.
-  
+
 >### 5. How to mask data:
 
 The profiler allows you to invoke a search and replace command to sanitize data as its extracted from CM/Ambari/Hadoop Services.  The default implementation is using the sed command.  Provided is a sed.txt file that acts as the sed command file.   The profiler assumes this file exists in its execution directory.  You can use a different implementation as long as the command you invoke can accept input from stdin and will write results to stdout. Please remember to include the "|" operator in the SEARCH_REPLACE parameter.
-  
+
 To use the default data masker, uncomment the SEARCH_REPLACE parameter.  Modify the sed.txt file as required.
-  
-NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs must be unique: 
+
+NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs must be unique:
 - For IP addresses, set up a replacement rule to substitute a subset of the leading numbers of the address e.g. first 2 decimals in address
 - For hostnames, set up a replacement rule to substitute host domains, or prefix
 
@@ -518,13 +522,13 @@ NOTE: To ensure the data can be analyzed properly, obfuscated hostnames and IPs 
 >### 6. Scheduling the profiler:
 
 
-If the profiler cannot be scheduled using cron or other scheduler, use the schedule_profiler.sh to trigger the profiler in the background using nohup. 
+If the profiler cannot be scheduled using cron or other scheduler, use the schedule_profiler.sh to trigger the profiler in the background using nohup.
 Make sure to pass the secret Key  as an arugment to the profiler.
 
 
 - For Example : <font face="Courier"> nohup ./schedule_profiler.sh mySecretPassKey &>/dev/null & </font>
 
-The scheduler is a  depends on the following configurations in the config file: 
+The scheduler is a  depends on the following configurations in the config file:
 
 <table>
 <tbody>
@@ -570,12 +574,12 @@ The profiler execution logs can be found in the <font face="Courier New"> /logs/
 
 >### FAQ :  
 
-#### 1. Does the  profiler extract any sensitive data ? 
+#### 1. Does the  profiler extract any sensitive data ?
 
 
 No.  The profiler has zero access to the customer data nor code.  
 The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera Manager and collects:
- 
+
 
 ### <u> Environment Information </u>
 <li> Cluster Name  
@@ -604,7 +608,7 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 <li> Group names
 <li> Policy (permission details)
 
- 
+
 ### <u> YARN </u>
 <li> Hostnames / IPs / ports
 <li> Job name
@@ -622,7 +626,7 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 <li> Numerics - Metrics - memory, elapsed time, etc
 <li> Full SQL Query Text
 
- 
+
 ### <u> Spark Applications </u>
 <li> Hostnames and ports
 <li> Directory names to log location
@@ -630,37 +634,37 @@ The profiler runs  REST API (curl) commands against YARN RM, Ambari or Cloudera 
 
 <br>
 <br>
- 
 
-#### 2. Does running the profiler has any impact on the cluster performance ? 
 
-The profiler just utilizes the REST API commands which are exposed by YARN RM  / Ambari / Cloudera Manager.  Executing the profiler once daily should not cause any performance issues. 
+#### 2. Does running the profiler has any impact on the cluster performance ?
 
- 
+The profiler just utilizes the REST API commands which are exposed by YARN RM  / Ambari / Cloudera Manager.  Executing the profiler once daily should not cause any performance issues.
+
+
 
 #### 3. Does the profiler transmit any data to external URL or  collectors ?  
 
 No. All the results are stored as part of the Output folder within the Profiler base folder. The profiler cannot transmit any data  in an automated way and has to be manually shared by the customer (either by email or by using the upload script)  
 
- 
+
 
 #### 4. Is the output data encrypted or stored in a custom format ?  
 
 No. The output data is in plaintext (csv or json).  This data can be sanitized as needed by the customer
 
- 
+
 
 #### 5. I don't have access to Cloudera Manager / Ambari, can the profiler still collect data ?  
 
 Yes.  Set the DISTRIBUTION=OTH in the profiler.conf file.  With this setting, the profiler will extract YARN and optionally Spark History data.
 
- 
+
 
  #### 6. Does the profiler work against a Mesos environment?
 
 No.  However, from Mesos, you can manually collect container metrics which include cores/memory, and execution time.  This can be used to derive a DBU cost.  Reach out to the SWAT team for more details.
 
- 
+
 
 #### 7. Does the profiler support my version of CDH, HDP, or CDP?
 
@@ -668,14 +672,12 @@ The profiler collection script supports CDH 5.x, CDH 6.x HDP 2.x, HDP 3.x, HDI 3
 
 In general, the REST endpoints used are consistent across Hadoop distribution versions with the exception of Cloudera Manager.   There is a setting in profiler.conf (CM_API_VERSION) which should be set with the corresponding API version.  The profiler collection script will use this version information when assembling the Cloudera Manager REST endpoint URL.
 
- 
+
 
 #### 8. How do I determine the frequency of execution for Incremental extracts ?
 
-It is important to note that YARN has a default log aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications) and starts cleaning up the older application history.Please check this value (in yarn configs - either yarn-defaults or yarn-site.xml)  and schedule the extracts appropriately to capture all the application. For Example:  If the customer is running more than 10K jobs per day, make sure to decrease the frequency to run  every 6-12 hours (instead of a day). 
+It is important to note that YARN has a default log aggregation and retention set as 10000 (yarn.resourcemanager.max-completed-applications) and starts cleaning up the older application history.Please check this value (in yarn configs - either yarn-defaults or yarn-site.xml)  and schedule the extracts appropriately to capture all the application. For Example:  If the customer is running more than 10K jobs per day, make sure to decrease the frequency to run  every 6-12 hours (instead of a day).
 
 #### 9. How much storage is needed to run the profiler?
-    
+
 Typically the profiler will consume anywhere between 200-300MB of disk space after a 2 week run.  This can vary due to the activity of the hadoop cluster.  To be safe, ensure the location the profiler will run has at least 10GB of free space.
-    
-      
