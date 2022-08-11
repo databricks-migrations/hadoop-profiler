@@ -481,12 +481,13 @@ Execute the following on the edge node or a host that can reach the YARN Resourc
 3. Update [profiler.conf](Profiler/profiler.conf) to required settings depending on your Hadoop distribution. The code automatically determines if its an Initial or Incremental Extract. 
 4. Password Encryption:  
     - Open text passwords are not allowed in the configs file and passwords needs to be encrypted using Openssl.
-    - Use the following command to encrypt the password.
-         - <font face="Courier New"> echo '"Admin Passwords"' | openssl enc -base64 -e -aes-256-cbc -nosalt -pass pass:mySecretPassKey </font>
+    - Use the following command to encrypt the password value- replace <admin password> with the actual password
+         - <font face="Courier New"> echo '"<admin password>"' | openssl enc -base64 -e -aes-256-cbc -nosalt -pass pass:mySecretPassKey </font>
     - <b>CAUTION: </b> 
-    1. Make sure to enclose the password with in Single and Double Quotes (example provided above) 
-    2. Ignore the 'Deprecated Key' Warning (if any)
-    3. Keep your secret Key 'mySecretPassKey' safe and pass it as an arugment to the profiler. Refer to Step 4. 
+    a. Make sure to enclose the password with in Single and Double Quotes (example provided above) 
+    b. Ignore the 'Deprecated Key' Warning (if any)
+    c. Keep your secret Key 'mySecretPassKey' safe and pass it as an arugment to the profiler. Refer to Step 4.   YOU MUST USE THE SAME SECRET KEY WHEN ENCRYPTING ANY PASSWORD!!
+    d. The output of the openssl command is the value you specify in the profiler.conf file e.g. Encrypt the Cloudera Manager password using the openssl command, then use output generate as the CM_ADMIN_PASSWORD value.  You will need to do this separately for RANGER_PWD (or AMBARI_ADMIN_PASSWORD). 
 3. <font face="Courier New"> chmod +x profiler.sh </font>
 4. <font face="Courier New"> ./profiler.sh mySecretPassKey </font>
 5. Make sure the Output extracts have the data extracted. 
