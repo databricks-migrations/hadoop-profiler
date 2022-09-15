@@ -583,12 +583,18 @@ extract_cdp() {
         extract_spark_logs
     fi
 
-    #if [ "$INITIAL_EXEC" == "Y" ]; then
-
     extract_cm_info
-       #extract_sentry_policies
 
-    #fi
+    if [ "$INITIAL_EXEC" == "Y" ]; then
+        ### Extract Ranger Policies and Repos if set up CDP 
+        if [ "$IS_RANGER_SETUP" == "Y" ]; then
+            ranger_out_dir=$output_dir/RANGER/$extract_date/
+            mkdir -p $ranger_out_dir
+            extract_ranger_policies
+
+            #extract_sentry_policies
+        fi
+    fi
 
     ####################################
     ## Extracting Impala
@@ -721,6 +727,10 @@ else if [ "$DISTRIBUTION" == "CDH" ]; then
       echo " Distribution is Cloudera . Starting Extract ... "
       
       CM_ADMIN_PASSWORD=`echo $CM_ADMIN_PASSWORD| openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
+
+      if [ "$IS_CDP" == "Y" ]; then 
+            RANGER_PWD=`echo $RANGER_PWD | openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:$saltKey`
+      fi 
   
       extract_cdp
 
