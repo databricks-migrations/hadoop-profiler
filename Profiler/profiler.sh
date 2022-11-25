@@ -112,6 +112,7 @@ check_active_rm() {
            clusterinfourl=$url$rms:$RM_SERVER_PORT$clusterinfo
        fi
 
+       echo "curl command to check active rm: $clusterinfourl"
 
        activerm=`$clusterinfourl`
       
@@ -146,6 +147,7 @@ check_active_rm() {
 extract_yarn_appls() {
 
     appdump=YarnApplicationDump_$curr_date.json
+    echo "curl command to extract yarn apps: $activerm_url$rmapps $SEARCH_REPLACE"
     eval $activerm_url$rmapps $SEARCH_REPLACE >  $yarn_out_dir$appdump
 
 }
@@ -156,6 +158,7 @@ extract_yarn_appls() {
 extract_yarn_hosts()  {
 
     nodedump=YarnNodesDump_$curr_date.json
+    echo "curl command to extract yarn nodes: $activerm_url$rmnodes $SEARCH_REPLACE"
     eval $activerm_url$rmnodes $SEARCH_REPLACE >  $yarn_out_dir$nodedump
 
 }
@@ -167,6 +170,7 @@ extract_yarn_hosts()  {
 extract_yarn_metrics()  {
 
     metricsdump=YarnMetricsDump_$curr_date.json
+    echo "curl command to extract yarn metrics: $activerm_url$rmmetrics $SEARCH_REPLACE"
     eval $activerm_url$rmmetrics $SEARCH_REPLACE >  $yarn_out_dir$metricsdump
 
 }
