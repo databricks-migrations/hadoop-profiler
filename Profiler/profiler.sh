@@ -603,8 +603,9 @@ extract_cdp() {
     ####################################
     ## Extracting Impala
     ####################################
-
-    extract_impala
+    if [ "$CM_EXTRACT_IMPALA_QUERIES" == "Y" ]; then
+       extract_impala
+    fi
 
     echo " #################################################################################################################"
     echo " NOTE: This is an Initial Extract.  Please inspect the files to:                                                  "
