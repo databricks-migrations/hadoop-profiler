@@ -46,7 +46,7 @@ export http='http://'
 export kerburl=' --negotiate -u : '
 
 export clusterinfo='/ws/v1/cluster/info'
-export rmapps='/ws/v1/cluster/apps'
+export rmapps="/ws/v1/cluster/apps${RM_APP_FILTER}"
 export rmmetrics='/ws/v1/cluster/metrics'
 export rmscheduler='/ws/v1/cluster/scheduler'
 export rmnodes='/ws/v1/cluster/nodes'
