@@ -453,7 +453,29 @@ extract_cm_info() {
         http="http://"
     fi
 
+    CM_CLUSTER_ORIG=$CM_CLUSTER
     CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'`
+
+    cmCheckClusterName="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER"
+    checkResult=`eval $cmCheckClusterName | grep "Bad credentials" | wc -l`
+    if [ $checkResult -gt 0 ]; then
+        echo "Bad Cloudera Manager credentials. Please validate credentials."
+        exit -1
+    fi
+    checkResult=`eval $cmCheckClusterName  | grep "not found" | wc -l`
+    if [ $checkResult -gt 0 ]; then
+        echo "Error: '"$CM_CLUSTER_ORIG"' does not exist. Please confirm value for CM_CLUSTER"
+        exit -1
+    fi
+
+    if [ "$CM_EXTRACT_IMPALA_QUERIES" == "Y" ]; then
+        cmCheckImpalaServiceName="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services/$CM_IMPALA_SERVICE"
+        checkResult=`eval $cmCheckImpalaServiceName | grep "not found" | wc -l`
+        if [ $checkResult -gt 0 ]; then
+            echo "Error: Impala service '"$CM_IMPALA_SERVICE"' not found. Please confirm value for CM_IMPALA_SERVICE"
+            exit -1
+        fi
+    fi
 
 
     ###########################################
@@ -580,6 +602,8 @@ extract_impala() {
 
 extract_cdp() {
 
+    extract_cm_info
+
     check_kerberos
     extract_yarn
 
@@ -587,7 +611,6 @@ extract_cdp() {
         extract_spark_logs
     fi
 
-    extract_cm_info
 
     if [ "$INITIAL_EXEC" == "Y" ]; then
         ### Extract Ranger Policies and Repos if set up CDP 
@@ -681,7 +704,6 @@ check_run_status() {
 
 
     else
-         echo "Initial Run" > $tracker_file
          INITIAL_EXEC="Y"
           echo " ####################################################################################################"
           echo "  Processing Initial Extract ... "
@@ -710,9 +732,6 @@ fi
 
 #echo " Creating Output Directory : "
 mkdir -p $output_dir
-
-## Create Tracker Directory
-mkdir -p $runtracker_dir
 
 ## Check to see if the intial extract was executed
 check_run_status
@@ -748,4 +767,10 @@ else if [ "$DISTRIBUTION" == "CDH" ]; then
               exit 1
 	   fi
      fi
+fi
+
+## Create Tracker Directory
+if [ "$INITIAL_EXEC" == "Y" ]; then
+  mkdir -p $runtracker_dir
+  echo "Initial Run" > $tracker_file
 fi
