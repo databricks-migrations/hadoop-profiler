@@ -453,21 +453,26 @@ extract_cm_info() {
         http="http://"
     fi
 
+    # saving the cluster name so we can output an error if they set it incorrectly
     CM_CLUSTER_ORIG=$CM_CLUSTER
     CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'`
 
+    # check the cluster is valid against CM, note, we'll also uncover bad credential settings
     cmCheckClusterName="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER"
     checkResult=`eval $cmCheckClusterName | grep "Bad credentials" | wc -l`
     if [ $checkResult -gt 0 ]; then
         echo "Bad Cloudera Manager credentials. Please validate credentials."
         exit -1
     fi
+
+    # we are passed the credentials check, let's confirm the cluster name is valid
     checkResult=`eval $cmCheckClusterName  | grep "not found" | wc -l`
     if [ $checkResult -gt 0 ]; then
         echo "Error: '"$CM_CLUSTER_ORIG"' does not exist. Please confirm value for CM_CLUSTER"
         exit -1
     fi
 
+    # if we are checking impala queries, validate the impala service name is correct
     if [ "$CM_EXTRACT_IMPALA_QUERIES" == "Y" ]; then
         cmCheckImpalaServiceName="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER/services/$CM_IMPALA_SERVICE"
         checkResult=`eval $cmCheckImpalaServiceName | grep "not found" | wc -l`
