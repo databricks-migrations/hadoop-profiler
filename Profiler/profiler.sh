@@ -457,15 +457,21 @@ extract_cm_info() {
     CM_CLUSTER_ORIG=$CM_CLUSTER
     CM_CLUSTER=`echo $CM_CLUSTER | sed 's/ /%20/g'`
 
-    # check the cluster is valid against CM, note, we'll also uncover bad credential settings
-    cmCheckClusterName="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER"
-    checkResult=`eval $cmCheckClusterName | grep "Bad credentials" | wc -l`
+    # automatically get the API version
+    cmCheckVersion="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/version"
+    checkResult=`eval $cmCheckVersion | grep "Bad credentials" | wc -l`
+    # check if invalid credentials were set
     if [ $checkResult -gt 0 ]; then
         echo "Bad Cloudera Manager credentials. Please validate credentials."
         exit -1
     fi
+    # we got here, so set the API version
+    CM_API_VERSION=`eval $cmCheckVersion`
+    echo "API Version "$CM_API_VERSION
 
-    # we are passed the credentials check, let's confirm the cluster name is valid
+    # check the cluster is a valid name
+    cmCheckClusterName="$CURL -X GET -u $CM_ADMIN_USER:$CM_ADMIN_PASSWORD $http$CM_SERVER_URL:$CM_SERVER_PORT/api/$CM_API_VERSION/clusters/$CM_CLUSTER"
+    # check if the cluster is found
     checkResult=`eval $cmCheckClusterName  | grep "not found" | wc -l`
     if [ $checkResult -gt 0 ]; then
         echo "Error: '"$CM_CLUSTER_ORIG"' does not exist. Please confirm value for CM_CLUSTER"
@@ -635,12 +641,14 @@ extract_cdp() {
        extract_impala
     fi
 
+    if [ "$INITIAL_EXEC" == "Y" ]; then
     echo " #################################################################################################################"
     echo " NOTE: This is an Initial Extract.  Please inspect the files to:                                                  "
     echo " -----  1. Make sure the extracts looks fine ....                                                                 "
     echo "        2. Cloudera Manager Export  for  any sensitive information like user id and passwords                     "
     echo "        3. Impala extract for hard coded NPI or PHI values in the queries                                         "
     echo " #################################################################################################################"
+    fi
 
 }
 
