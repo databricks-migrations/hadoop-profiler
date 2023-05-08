@@ -315,7 +315,7 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 <p><span style="font-weight: 400;">CM_CLUSTER</span></p>
 </td>
 <td>
-<p><span style="font-weight: 400;">Cloudera Manager Cluster Name&nbsp;</span></p>
+<p><span style="font-weight: 400;">Cloudera Manager Cluster Name.  You will need to convert any special characters to URL encoding - (https://www.w3schools.com/tags/ref_urlencode.ASP) &nbsp;</span></p>
 </td>
 </tr>
 <tr>
@@ -406,7 +406,7 @@ The Profiler consists of a simple shell script, [profiler.sh](Profiler/profiler.
 <p><span style="font-weight: 400;">CLUSTER_NAME</span></p>
 </td>
 <td>
-<p><span style="font-weight: 400;">HDP Cluster name&nbsp;</span></p>
+<p><span style="font-weight: 400;">HDP Cluster name - You will need to convert any special characters to URL encoding - (https://www.w3schools.com/tags/ref_urlencode.ASP) &nbsp;</span></p>
 </td>
 </tr>
 <tr>
