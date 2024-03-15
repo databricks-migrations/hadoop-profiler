@@ -482,7 +482,7 @@ Execute the following on the edge node or a host that can reach the YARN Resourc
 4. Password Encryption:  
     - Open text passwords are not allowed in the configs file and passwords needs to be encrypted using Openssl.
     - Use the following command to encrypt the password value- replace `<admin password>` with the actual password
-         - <font face="Courier New"> echo '"`<admin password>`"' | openssl enc -base64 -e -aes-256-cbc -nosalt -pass pass:mySecretPassKey </font>
+         - <font face="Courier New"> read -s admin_password && echo "$admin_password" | openssl enc -base64 -e -aes-256-cbc -nosalt -pass pass:mySecretPassKey 2>&1 && unset admin_password </font>
     - <b>CAUTION:  
     a. Make sure to enclose the password with in Single and Double Quotes (example provided above)  
     b. Ignore the 'Deprecated Key' Warning (if any).  
